@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Inventory Items</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of itemList">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ item.name }}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              {{item.description}}
+            </p>
+            <p>
+                Remaining Quantity : {{item.quantity}}
+            </p>
+            <p>
+                Price : {{item.price}} LKR
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="['/inventory/edit', item._id]">Edit</button>
+            <button mat-raised-button color="warn" (click)="deleteItem(item._id)">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+  </div>
+</div>

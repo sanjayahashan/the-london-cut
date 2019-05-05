@@ -65,17 +65,6 @@ router.put('/item/:id', function(req, res, next) {
     );
 });
 
-router.delete('/item/:id', function(req, res, next) {
-    Item.remove({_id:req.params.id}, function(err, item) {
-        if(err) {
-            res.json(err);
-        }
-        else {
-            res.json(item);
-        }
-    });
-});
-
 router.get('/test', function(req, res, next) {
     res.send("Hello World");
 });
