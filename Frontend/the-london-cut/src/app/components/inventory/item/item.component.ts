@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/shared/models/item.model';
 import { ItemService } from 'src/app/shared/services/item.service';
+import { filter, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-item',
@@ -9,7 +11,7 @@ import { ItemService } from 'src/app/shared/services/item.service';
   providers: [ItemService]
 })
 export class ItemComponent implements OnInit {
-  itemList: Item[];
+  itemList: Observable<Item[]>;
 
   constructor(private itemService: ItemService) { }
 
@@ -18,10 +20,12 @@ export class ItemComponent implements OnInit {
   }
 
   getItems() {
-    this.itemService.all().subscribe(items => {
-      this.itemList = items;
-      console.log(this.itemList);
-    });
+    this.itemList = this.itemService.all();
+    console.log(this.itemList);
+  }
+
+  getItemsByType() {
+    this.itemList = this.itemList.pipe(filter(item => item.name=="Cotton"));
   }
 
   deleteItem(id) {

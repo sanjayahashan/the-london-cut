@@ -10,12 +10,14 @@ import { MaterialModule } from './shared/material/material.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ItemCreateComponent } from './components/inventory/item-create/item-create.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { TypePipe } from './pipes/type.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
     ItemCreateComponent,
+    TypePipe
   ],
   imports: [
     BrowserModule,
