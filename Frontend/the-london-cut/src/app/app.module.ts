@@ -11,6 +11,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ItemCreateComponent } from './components/inventory/item-create/item-create.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
+import { OrderManagementComponent } from './components/order-management/order-management.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AdminComponent } from './components/admin/admin.component';
     ItemComponent,
     ItemCreateComponent,
     AdminComponent,
+    OrderManagementComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,75 @@
+<div class="container">
+  <h2>Add an Item to the Inventory</h2>
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="_id">
+        <p>
+          <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput #name formControlName="name" placeholder="Cotton">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+        </p>
+
+       <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput #description formControlName="description" rows="5" placeholder="Cotton"></textarea>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+       </p>
+
+       <p>
+          <mat-form-field appearance="outline">
+              <mat-label>Quantity</mat-label>
+              <input matInput #quantity formControlName="quantity" placeholder="200">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+         </p>
+
+         <p>
+            <mat-form-field appearance="outline">
+                <mat-label>price</mat-label>
+                <input matInput #price formControlName="price" placeholder="350">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+              </mat-form-field>
+           </p>
+
+           <button mat-raised-button type="submit" color="primary">Save</button>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <h3>Preview</h3>
+        <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{ name.value }}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                {{description.value}}
+              </p>
+              <p>
+                  Remaining Quantity : {{quantity.value}}
+              </p>
+              <p>
+                  Price : {{price.value}} LKR
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary">Edit</button>
+              <button mat-raised-button color="warn">Delete</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+  </div>
+</div>
