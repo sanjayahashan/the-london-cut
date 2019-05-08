@@ -10,12 +10,14 @@ import { MaterialModule } from './shared/material/material.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ItemCreateComponent } from './components/inventory/item-create/item-create.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
     ItemCreateComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
