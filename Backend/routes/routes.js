@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 const Item = require('../models/item');
+const url = "/items/"
 
-router.get('/items', function(req, res, next) {
+router.get(url, function(req, res, next) {
     Item.find(function(err, items) {
         if(err) {
             res.json(err);
@@ -14,7 +15,7 @@ router.get('/items', function(req, res, next) {
     });
 });
 
-router.get('/item/:id', function(req, res, next) {
+router.get('url + :id', function(req, res, next) {
     Item.findById(req.params.id, function(err, item) {
         if(err) {
             res.json(err);
@@ -25,7 +26,7 @@ router.get('/item/:id', function(req, res, next) {
     });
 });
 
-router.post('/item', (req, res, next)=>{
+router.post(url, (req, res, next)=>{
     let newitem = new Item ({
         name: req.body.name,
         description: req.body.description,
@@ -44,7 +45,7 @@ router.post('/item', (req, res, next)=>{
 
 });
 
-router.put('/item/:id', function(req, res, next) {
+router.put('url + :id', function(req, res, next) {
     Item.findByIdAndUpdate((req.params.id), {
         $set: {
             name: req.body.name,
@@ -65,7 +66,7 @@ router.put('/item/:id', function(req, res, next) {
     );
 });
 
-router.delete('/item/:id', function(req, res, next) {
+router.delete('url + :id', function(req, res, next) {
     Item.remove({_id:req.params.id}, function(err, item) {
         if(err) {
             res.json(err);
