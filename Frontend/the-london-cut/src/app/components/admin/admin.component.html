@@ -6,8 +6,8 @@
       Tip 2: you can also add an image using data-image tag
   -->
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-        The-London-Cut
+      <a [routerLink]="['/']" class="simple-text logo-normal">
+        <b>The-London-Cut</b>
       </a>
     </div>
     <div class="sidebar-wrapper">
@@ -19,7 +19,7 @@
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="./ordermng">
+          <a class="nav-link" [routerLink]="['/ordermng']">
             <i class="material-icons">person</i>
             <p>Orders</p>
           </a>
