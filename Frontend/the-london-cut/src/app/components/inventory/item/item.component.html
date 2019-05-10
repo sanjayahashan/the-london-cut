@@ -3,9 +3,8 @@
 
   <mat-form-field appearance="legacy">
       <mat-label>Search</mat-label>
-      <input matInput #term>
+      <input matInput #term (keyup)="search(term.value)">
       <mat-icon matSuffix>search</mat-icon>
-      <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
   <div class="row">

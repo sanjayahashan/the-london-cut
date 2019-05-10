@@ -14,8 +14,8 @@ export class ItemService {
 
   constructor(private http: HttpClient) { }
 
-  all(): Observable<Item> {
-    return this.http.get<Item>(serverUrl);
+  all(): Observable<Item[]> {
+    return this.http.get<Item[]>(serverUrl);
   }
 
   add(item: Item): Observable<Item> {

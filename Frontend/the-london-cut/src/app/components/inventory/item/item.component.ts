@@ -11,12 +11,12 @@ import { Observable, from } from 'rxjs';
   providers: [ItemService]
 })
 export class ItemComponent implements OnInit {
-  itemList: Observable<Item>;
+  itemList: Observable<Item[]>;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
-    this.getItemsByType();
+    this.getItems();
   }
 
   getItems() {
@@ -24,13 +24,8 @@ export class ItemComponent implements OnInit {
     console.log(this.itemList);
   }
 
-  getItemsByType() {
-    this.itemList = this.itemService.all().pipe(filter(item => item.name != "Wool"));
-    this.itemList.subscribe(item => {
-      console.log(item.name);
-    });
-      // console.log(this.itemList);
-    // this.itemList = this.itemService.all().pipe(filter(item => item.name.includes("ool")));
+  search(term: string) {
+    this.itemList = this.itemService.all().pipe(map(items => items.filter(item => item.name.toLowerCase().includes(term.toLowerCase()))));
   }
 
   deleteItem(id) {

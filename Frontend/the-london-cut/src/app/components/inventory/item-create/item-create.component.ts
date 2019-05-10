@@ -13,11 +13,13 @@ export class ItemCreateComponent implements OnInit {
   item:Item;
 
   itemForm = new FormGroup ({
-    _id: new FormControl(null),
+    _id: new FormControl(),
     name: new FormControl(''),
     description: new FormControl(''),
     quantity: new FormControl(''),
     price: new FormControl(''),
+    type: new FormControl(''),
+    suit_category: new FormControl(''),
   });
 
   constructor(
@@ -36,9 +38,9 @@ export class ItemCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.itemForm.value);
-    if(this.itemForm.get('_id')==null) {
-      this.itemForm.patchValue({_id:''});
+    // console.log(this.itemForm.get('_id'));
+    if(!this.itemForm.get('_id').value) {
+      // this.itemForm.patchValue({_id:''});
       this.item = this.itemForm.value;
       this.itemService.add(this.item).subscribe(item => {
         console.log(item);
