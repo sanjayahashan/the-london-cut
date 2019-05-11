@@ -12,7 +12,7 @@ import { ItemCreateComponent } from './components/inventory/item-create/item-cre
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
 import { OrderManagementComponent } from './components/order-management/order-management.component';
-import { OrdersListComponent } from './components/orders-list/orders-list.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,7 @@ import { OrdersListComponent } from './components/orders-list/orders-list.compon
     ItemCreateComponent,
     AdminComponent,
     OrderManagementComponent,
-    OrdersListComponent,
-    
+    LandingComponent,
   ],
   imports: [
     BrowserModule,

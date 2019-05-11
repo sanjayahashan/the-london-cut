@@ -1,7 +1,14 @@
 <div class="container">
   <h2>Inventory Items</h2>
+
+  <mat-form-field appearance="legacy">
+      <mat-label>Search</mat-label>
+      <input matInput #term (keyup)="search(term.value)">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
   <div class="row">
-    <div class="col-md-4" *ngFor="let item of itemList">
+    <div class="col-md-4" *ngFor="let item of itemList | async">
         <mat-card class="example-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>

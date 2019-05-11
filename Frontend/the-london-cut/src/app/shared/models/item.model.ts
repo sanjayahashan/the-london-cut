@@ -4,5 +4,7 @@ export class Item {
     name: string;
     description: string;
     quantity: number;
+    type: string;
+    suit_category: string;
 
 } 

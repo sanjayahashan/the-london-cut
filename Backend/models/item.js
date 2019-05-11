@@ -19,6 +19,13 @@ var itemSchema = new Schema({
     price: {
         type:Number,
         required: true
+    },
+    type: {
+        type:String,
+        required: true
+    },
+    suit_category: {
+        type:String
     }
 });
 
