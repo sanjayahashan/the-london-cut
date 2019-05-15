@@ -20,7 +20,7 @@
         </li>
         <li class="nav-item ">
           <a class="nav-link" [routerLink]="['/ordermng']">
-            <i class="material-icons">person</i>
+            <i class="material-icons">shopping_cart</i>
             <p>Orders</p>
           </a>
         </li>
@@ -32,92 +32,26 @@
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="./typography.html">
-            <i class="material-icons">library_books</i>
-            <p>Typography</p>
+            <i class="material-icons">face</i>
+            <p>Employees</p>
           </a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="./inventory">
-            <i class="material-icons">bubble_chart</i>
-            <p>Icons</p>
+            <i class="material-icons">book</i>
+            <p>Bookings</p>
           </a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="./map.html">
-            <i class="material-icons">location_ons</i>
-            <p>Maps</p>
+            <i class="material-icons">markunread_mailbox</i>
+            <p>Rented</p>
           </a>
         </li>
       </ul>
     </div>
   </div>
   <div class="main-panel">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-      <div class="container-fluid">
-        <div class="navbar-wrapper">
-          <a class="navbar-brand" href="#pablo">Dashboard</a>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon icon-bar"></span>
-          <span class="navbar-toggler-icon icon-bar"></span>
-          <span class="navbar-toggler-icon icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end">
-          <form class="navbar-form">
-            <div class="input-group no-border">
-              <input type="text" value="" class="form-control" placeholder="Search...">
-              <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                <i class="material-icons">search</i>
-                <div class="ripple-container"></div>
-              </button>
-            </div>
-          </form>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#pablo">
-                <i class="material-icons">dashboard</i>
-                <p class="d-lg-none d-md-block">
-                  Stats
-                </p>
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="material-icons">notifications</i>
-                <span class="notification">5</span>
-                <p class="d-lg-none d-md-block">
-                  Some Actions
-                </p>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                <a class="dropdown-item" href="#">Another Notification</a>
-                <a class="dropdown-item" href="#">Another One</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="material-icons">person</i>
-                <p class="d-lg-none d-md-block">
-                  Account
-                </p>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Settings</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Log out</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- End Navbar -->
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -125,17 +59,16 @@
             <div class="card card-stats">
               <div class="card-header card-header-warning card-header-icon">
                 <div class="card-icon">
-                  <i class="material-icons">content_copy</i>
+                  <i class="material-icons">score</i>
                 </div>
-                <p class="card-category">Used Space</p>
-                <h3 class="card-title">49/50
-                  <small>GB</small>
+                <p class="card-category">Total Income</p>
+                <h3 class="card-title">20000
+                  <small>Rupees</small>
                 </h3>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="material-icons text-danger">warning</i>
-                  <a href="#pablo">Get More Space...</a>
+                  <i class="material-icons">date_range</i>Last Month
                 </div>
               </div>
             </div>
@@ -146,8 +79,8 @@
                 <div class="card-icon">
                   <i class="material-icons">store</i>
                 </div>
-                <p class="card-category">Revenue</p>
-                <h3 class="card-title">$34,245</h3>
+                <p class="card-category">Rented</p>
+                <h3 class="card-title">100</h3>
               </div>
               <div class="card-footer">
                 <div class="stats">
@@ -160,14 +93,14 @@
             <div class="card card-stats">
               <div class="card-header card-header-danger card-header-icon">
                 <div class="card-icon">
-                  <i class="material-icons">info_outline</i>
+                  <i class="material-icons">collections_bookmark</i>
                 </div>
-                <p class="card-category">Fixed Issues</p>
+                <p class="card-category">Bookings</p>
                 <h3 class="card-title">75</h3>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="material-icons">local_offer</i> Tracked from Github
+                  <i class="material-icons">date_range</i> Last 24 Hours
                 </div>
               </div>
             </div>
@@ -533,40 +466,5 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <div class="container-fluid">
-        <nav class="float-left">
-          <ul>
-            <li>
-              <a href="https://www.creative-tim.com">
-                Creative Tim
-              </a>
-            </li>
-            <li>
-              <a href="https://creative-tim.com/presentation">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="https://www.creative-tim.com/license">
-                Licenses
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="copyright float-right">
-          &copy;
-          <script>
-            document.write(new Date().getFullYear())
-          </script>, made with <i class="material-icons">favorite</i> by
-          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-        </div>
-      </div>
-    </footer>
   </div>
 </div>
