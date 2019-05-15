@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'ordermng', component: OrderManagementComponent},
 
   // Admin
-  { path: 'admin-dashboard', component: AdminComponent}
+  { path: 'admin', component: AdminComponent}
 ];
 
 @NgModule({

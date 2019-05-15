@@ -1,9 +1,9 @@
-example-form {
-    min-width: 50px;
-    max-width: 100px;
-    width: 100%;
-  }
+
+
+.example-button-row button,
+.example-button-row a {
+  width: 150px;
+  margin-top: 10px;
+  margin-left: 0px;
   
-  .example-full-width {
-    width: 100%;
-  }
+}
