@@ -1,0 +1,34 @@
+<table class="table table-sm">
+  <thead>
+    <th>Subject Code</th>
+    <th>Subject</th>
+    <th>Year</th>
+    <th>Semester</th>
+    <th>Credit</th>
+    <th>Assigned Lecturer 1</th>
+    <th>Assigned Lecturer 2</th>
+    <th></th>
+  </thead>
+  <ng-container *ngFor="let subject of list">
+    <tr class="table">
+      <td>{{subject.subjectCode}}</td>
+      <td>{{subject.subjectTitle}}</td>
+      <td>{{subject.year}}</td>
+      <td>{{subject.semester}}</td>
+      <td>{{subject.credit}}</td>
+      <td>{{subject.assignedLecturer1}}</td>
+      <td>{{subject.assignedLecturer2}}</td>
+      <td> 
+        <a class="action-btn" style="color:rgb(36, 143, 192); cursor: pointer" (click)="onEdit(subject)">
+          <i class="material-icons">edit</i>
+        </a>
+        <a class="action-btn" style="color:lightcoral; cursor: pointer" (click)="onDelete(subject.id)">
+          <i class="material-icons">delete</i>
+        </a>
+      </td>
+    </tr>
+  </ng-container>
+</table>
+<div class="alert alert-danger" *ngIf="showDeleteMessage">
+    Deleted Successfully!
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-order-management',
@@ -10,6 +11,7 @@ export class OrderManagementComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
