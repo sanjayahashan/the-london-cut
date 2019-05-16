@@ -6,6 +6,28 @@
       <input matInput #term (keyup)="search(term.value)">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <mat-form-field>
+    <mat-label>Display : </mat-label>
+    <mat-select #displayType (selectionChange)="display(displayType.value)">
+      <mat-option value="material" selected>Materials</mat-option>
+      <mat-option value="suit">Suits</mat-option>
+      <mat-option value="rental">Suits for rent</mat-option>
+      <mat-option value="">All</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+
+  <div class="col-md-4">
+    <button mat-fab routerLink="/create">
+      <mat-icon aria-label="Example icon-button with a heart icon">add_circle</mat-icon>
+    </button>
+
+  </div>
+</div>
+
 
   <div class="row">
     <div class="col-md-4" *ngFor="let item of itemList | async">
@@ -29,6 +51,7 @@
           <mat-card-actions>
             <button mat-raised-button color="primary" [routerLink]="['/inventory/edit', item._id]">Edit</button>
             <button mat-raised-button color="warn" (click)="deleteItem(item._id)">Delete</button>
+            <button *ngIf="item.type=='rental'" mat-raised-button color="accent" [routerLink]="['/rent', item._id]">Rent</button>
           </mat-card-actions>
         </mat-card>
       </div>

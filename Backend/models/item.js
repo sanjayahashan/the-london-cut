@@ -26,6 +26,33 @@ var itemSchema = new Schema({
     },
     suit_category: {
         type:String
+    },
+    colors: String,
+    customer: {
+        name: {
+            type: String,
+            default: ''
+        },
+        nic: {
+            type: String,
+            default: ''
+        },
+        tel: {
+            type: String,
+            default: ''
+        },
+        date_took: {
+            type: Date,
+            default: ''
+        },
+        date: {
+            type: String,
+            default: ''
+        },
+        advanced: {
+            type: String,
+            default: ''
+        },
     }
 });
 

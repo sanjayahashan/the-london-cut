@@ -25,7 +25,15 @@ export class ItemComponent implements OnInit {
   }
 
   search(term: string) {
-    this.itemList = this.itemService.all().pipe(map(items => items.filter(item => item.name.toLowerCase().includes(term.toLowerCase()))));
+    this.itemList = this.itemService.all().pipe(map(
+      items => items.filter(item => item.name.toLowerCase().includes(term.toLowerCase())
+    )));
+  }
+
+  display(type: String) {
+    this.itemList = this.itemService.all().pipe(map(
+      items => items.filter(item => item.type==type)
+    ));
   }
 
   deleteItem(id) {

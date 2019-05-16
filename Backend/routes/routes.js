@@ -33,7 +33,8 @@ router.post(url, (req, res, next)=>{
         quantity: req.body.quantity,
         price: req.body.price,
         type: req.body.type,
-        suit_category: req.body.suit_category
+        suit_category: req.body.suit_category,
+        color: req.body.color
     });
 
     newitem.save((err, item)=> {
@@ -55,7 +56,9 @@ router.put(url +'/:id', function(req, res, next) {
             quantity: req.body.quantity,
             price: req.body.price,
             type: req.body.type,
-            suit_category: req.body.suit_category
+            suit_category: req.body.suit_category,
+            color: req.body.color,
+            customer: req.body.customer
         }
     },
         {new: true},

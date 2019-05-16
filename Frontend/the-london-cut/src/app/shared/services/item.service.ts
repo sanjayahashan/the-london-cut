@@ -9,8 +9,6 @@ var serverUrl = 'http://localhost:3000/api/items/';
   providedIn: 'root'
 })
 export class ItemService {
-  selectedItem: Item;
-  items: Item[];
 
   constructor(private http: HttpClient) { }
 

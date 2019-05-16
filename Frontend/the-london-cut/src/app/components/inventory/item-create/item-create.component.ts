@@ -25,7 +25,6 @@ export class ItemCreateComponent implements OnInit {
   constructor(
       private itemService: ItemService,
       private route: ActivatedRoute,
-      private router: Router,
     ) { }
 
   ngOnInit() {

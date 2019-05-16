@@ -44,11 +44,12 @@
             <mat-select #type formControlName="type">
               <mat-option value="material">Material</mat-option>
               <mat-option value="suit">Suit</mat-option>
+              <mat-option value="rental">Rental Product</mat-option>
             </mat-select>
           </mat-form-field>
         </p>
 
-        <div *ngIf="type.value=='suit'">
+        <div *ngIf="type.value!='material'">
           <label>Category: </label>
           <mat-radio-group #suitCat formControlName="suit_category">
             <mat-radio-button value="ladies">Ladies</mat-radio-button>
@@ -57,6 +58,11 @@
             <mat-radio-button value="unisex">Unisex</mat-radio-button>
           </mat-radio-group>
         </div>
+
+        
+            <mat-checkbox class="example-margin">Checked</mat-checkbox>
+            <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
+      
 
         <button mat-raised-button type="submit" color="primary">Save</button>
       </form>

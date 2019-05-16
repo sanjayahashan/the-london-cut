@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
 import { OrderManagementComponent } from './components/order-management/order-management.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { RentComponent } from './components/inventory/rent/rent.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { LandingComponent } from './components/landing/landing.component';
     AdminComponent,
     OrderManagementComponent,
     LandingComponent,
+    RentComponent,
   ],
   imports: [
     BrowserModule,
