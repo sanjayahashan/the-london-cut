@@ -3,7 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var body_parser = require('body-parser');
 var cors = require('cors');
-const route = require('./routes/routes.js');
+const route = require('./routes/index.js');
 
 var app = express();
 

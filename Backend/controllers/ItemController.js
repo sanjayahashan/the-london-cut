@@ -3,7 +3,7 @@ var router = express.Router();
 
 const Item = require('../models/item');
 
-router.get('/items', function(req, res, next) {
+router.get('/', function(req, res, next) {
     Item.find(function(err, items) {
         if(err) {
             res.json(err);
@@ -14,7 +14,7 @@ router.get('/items', function(req, res, next) {
     });
 });
 
-router.get('/item/:id', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
     Item.findById(req.params.id, function(err, item) {
         if(err) {
             res.json(err);
@@ -25,12 +25,15 @@ router.get('/item/:id', function(req, res, next) {
     });
 });
 
-router.post('/item', (req, res, next)=>{
+router.post('/', (req, res, next)=>{
     let newitem = new Item ({
         name: req.body.name,
         description: req.body.description,
         quantity: req.body.quantity,
-        price: req.body.price
+        price: req.body.price,
+        type: req.body.type,
+        suit_category: req.body.suit_category,
+        color: req.body.color
     });
 
     newitem.save((err, item)=> {
@@ -44,13 +47,17 @@ router.post('/item', (req, res, next)=>{
 
 });
 
-router.put('/item/:id', function(req, res, next) {
+router.put('/:id', function(req, res, next) {
     Item.findByIdAndUpdate((req.params.id), {
         $set: {
             name: req.body.name,
             description: req.body.description,
             quantity: req.body.quantity,
-            price: req.body.price
+            price: req.body.price,
+            type: req.body.type,
+            suit_category: req.body.suit_category,
+            color: req.body.color,
+            customer: req.body.customer
         }
     },
         {new: true},
@@ -63,6 +70,17 @@ router.put('/item/:id', function(req, res, next) {
             }
         }
     );
+});
+
+router.delete('/:id', function(req, res, next) {
+    Item.remove({_id:req.params.id}, function(err, item) {
+        if(err) {
+            res.json(err);
+        }
+        else {
+            res.json(item);
+        }
+    });
 });
 
 router.get('/test', function(req, res, next) {

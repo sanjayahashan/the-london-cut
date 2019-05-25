@@ -14,6 +14,7 @@
     "express": "^4.16.4",
     "mongodb": "^3.2.3",
     "mongoose": "^5.5.5",
+    "mongoose-timestamp": "^0.6.0",
     "nodemon": "^1.18.11"
   }
 }
