@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Employee Mangement</h2>
+        <mat-form-field appearance="legacy">
+          <mat-label>Search</mat-label>
+          <input matInput #term (keyup)="search(term.value)">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <div class="row">
+            <div class="col-md-6">
+              <form [formGroup]="employeesForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" formControlName="employeeId">
+                <mat-form-field appearance="outline">
+                      <mat-label>Employee ID</mat-label>
+                      <input matInput #empID formControlName="empId" placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Employee Name</mat-label>
+                      <input matInput #empName formControlName="empName" placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Address</mat-label>
+                      <input matInput #empAdd formControlName="empAdd" placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Contact No</mat-label>
+                      <input matInput #empContact formControlName="empContact" placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Gender</mat-label>
+                  <mat-select #empGender formControlName="empGender"> 
+                          <mat-option value="Male">Male</mat-option>  
+                          <mat-option value="Female" selected>Female</mat-option>
+                  </mat-select>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Work Started Date</mat-label>
+                      <input matInput #startDate formControlName = "startDate" placeholder="Choose a date">
+                      <mat-datepicker-toggle matSuffix [for]="fdate"></mat-datepicker-toggle>
+                          
+                  </mat-form-field>
+                  <mat-card-actions>
+                          <div class="example-button-row">
+                          <button mat-flat-button color="primary">Submit</button>    
+                          </div>
+                  </mat-card-actions>  
+              </form>
+            </div>
+        
+            <div class="col-md-6">
+            </div>
+          </div>
+        </div>
+        
+  
+        
+  
+    

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatLabel, MatHint, MatListModule, MatSelectModule, MatRadioButton, MatRadioModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatLabel, MatHint, MatListModule, MatSelectModule, MatRadioButton, MatRadioModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule,MatTabsModule, MatMenuModule,MatToolbarModule, } from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -17,7 +17,10 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatI
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,
+    MatMenuModule,
+    MatToolbarModule,
   ],
   exports: [
     MatButtonModule,
@@ -31,7 +34,10 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatI
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,
+    MatMenuModule,
+    MatToolbarModule,
   ]
 })
 export class MaterialModule { }

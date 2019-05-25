@@ -1,96 +1,72 @@
-<div class="main-content">
-  <div class="container-fluid">
+<div class="container">
+<h2>Order Mangement</h2>
+      <mat-form-field appearance="legacy">
+        <mat-label>Search</mat-label>
+        <input matInput #term (keyup)="search(term.value)">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
       <div class="row">
-          <div class="col-md-4">
-              <div class="card">
-                  <div class="card-header card-header-primary">
-                      <h4 class="card-title">Manage Orders</h4>
-                  </div>
-                  <div class="card-body">
-                      <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-                          <input type="hidden" name="id">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="assigned Lecturer 2" type="text" name="assignedLecturer2" >
-                              </mat-form-field> 
-                            </div>
+          <div class="col-md-6">
+            <form [formGroup]="ordersForm" (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="orderId">
+              <mat-form-field appearance="outline">
+                    <mat-label>Order Number</mat-label>
+                    <input matInput #orderNo formControlName="orderNo" placeholder="">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Order Description</mat-label>
+                    <textarea matInput #orderDes formControlName="orderDes" rows="5" placeholder=""></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Coustmer Name</mat-label>
+                    <input matInput #customerName formControlName="customerName" placeholder="">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Coustmer's Address</mat-label>
+                    <input matInput #customerAdd formControlName="customerAdd" placeholder="">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Contact No</mat-label>
+                    <input matInput #contactNo formControlName="contactNo" placeholder="">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Order Place Date</mat-label>
+                    <input matInput #placedDate formControlName ="placedDate" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="fdate"></mat-datepicker-toggle>
+                    
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                        <mat-label>Order Completion Date</mat-label>
+                        <input matInput #completedDate formControlName="completedDate" placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="ldate"></mat-datepicker-toggle>
+                        
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                        <mat-label>Payment Information</mat-label>
+                <mat-select #paymentInfo formControlName="paymentInfo"> 
+                        <mat-option value="No Payment Paid">No Payment</mat-option>  
+                        <mat-option value="Advanced Payment Paid " selected>Advacnced Payment</mat-option>
+                        <mat-option value="Full Payment Paid">Full Payment</mat-option>
+                </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                        <mat-label>Paid Amount</mat-label>
+                        <input matInput #amount formControlName="amount" placeholder="">
+                </mat-form-field>
+                <mat-card-actions>
+                        <div class="example-button-row">
+                        <button mat-flat-button color="primary">Submit</button>    
                         </div>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="assigned Lecturer 2" type="text" name="assignedLecturer2" >
-                              </mat-form-field> 
-                            </div>
-                        </div>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="assigned Lecturer 2" type="text" name="assignedLecturer2" >
-                              </mat-form-field> 
-                            </div>
-                        </div>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="assigned Lecturer 2" type="text" name="assignedLecturer2" >
-                              </mat-form-field> 
-                            </div>
-                        </div>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="assigned Lecturer 2" type="text" name="assignedLecturer2" >
-                              </mat-form-field> 
-                            </div>
-                        </div>
-
-                          <div class="row">
-                            <div class="col-md-12">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="assigned Lecturer 2" type="text" name="assignedLecturer2" >
-                              </mat-form-field> 
-                            </div>
-                        </div>
-
-                          <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="assigned Lecturer 2" type="text" name="assignedLecturer2" >
-                                </mat-form-field> 
-                              </div>
-                          </div>
-
-                          <div class="form-group text-right">
-                              <button mat-raised-button type="button" class="btn btn-info gap-right" >Reset</button>
-                              <button mat-raised-button type="submit" class="btn btn-success pull-right" >Submit</button>
-                          </div>
-                          <div class="clearfix"></div>
-                      </form>
-                      
-                  </div>
-              </div>
+                </mat-card-actions>  
+            </form>
           </div>
-          <div class="col-md-8">
-              <div class="card card-profile">
-                  <div class="card-header card-header-primary">
-                      <h4 class="card-title">Orders List</h4>
-                  </div>
-                  <div class="card-body">
-                    <app-orders-list></app-orders-list>
-                  </div>
-              </div>
+      
+          <div class="col-md-6">
           </div>
+        </div>
       </div>
-  </div>
-</div>
+      
 
+      
 
-
-
-
-
-
-
-
-
+  
