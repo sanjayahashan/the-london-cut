@@ -7,36 +7,35 @@
         </mat-form-field>
         <div class="row">
             <div class="col-md-6">
-              <form [formGroup]="OrdersForm" (ngSubmit)="onSubmit()">
-                <input type="hidden" formControlName="_id">
+              <form [formGroup]="employeesForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" formControlName="employeeId">
                 <mat-form-field appearance="outline">
                       <mat-label>Employee ID</mat-label>
-                      <input matInput placeholder="">
+                      <input matInput #empID formControlName="empID" placeholder="">
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                       <mat-label>Employee Name</mat-label>
-                      <input matInput placeholder="">
+                      <input matInput #empName formControlName="empName" placeholder="">
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                       <mat-label>Address</mat-label>
-                      <input matInput placeholder="">
+                      <input matInput #empAdd formControlName="empAdd" placeholder="">
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                       <mat-label>Contact No</mat-label>
-                      <input matInput placeholder="">
+                      <input matInput #empContact formControlName="empContact" placeholder="">
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                       <mat-label>Gender</mat-label>
-                  <mat-select #displayType (selectionChange)="display(displayType.value)"> 
+                  <mat-select #empGender formControlName="empGender"> 
                           <mat-option value="Male">Male</mat-option>  
                           <mat-option value="Female" selected>Female</mat-option>
                   </mat-select>
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                       <mat-label>Work Started Date</mat-label>
-                      <input matInput [matDatepicker]="fdate" placeholder="Choose a date">
+                      <input matInput #startDate formControlName = "startDate" placeholder="Choose a date">
                       <mat-datepicker-toggle matSuffix [for]="fdate"></mat-datepicker-toggle>
-                      <mat-datepicker #fdate></mat-datepicker>
                           
                   </mat-form-field>
                   <mat-card-actions>
