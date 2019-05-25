@@ -14,6 +14,7 @@ import { OrderManagementComponent } from './components/order-management/order-ma
 import { LandingComponent } from './components/landing/landing.component';
 import { RentComponent } from './components/inventory/rent/rent.component';
 import { EmployeeManagementComponent } from './components/employee-management/employee-management.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EmployeeManagementComponent } from './components/employee-management/em
     LandingComponent,
     RentComponent,
     EmployeeManagementComponent,
+    NavbarComponent,
   
   ],
   imports: [
