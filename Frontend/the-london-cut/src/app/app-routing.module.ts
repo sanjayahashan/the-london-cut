@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: 'inventory', component: ItemComponent },
   { path: 'inventory/create', component: ItemCreateComponent},
   { path: 'inventory/edit/:id', component: ItemCreateComponent},
-
   { path: 'rent/:id', component: RentComponent},
 
   { path: 'ordermng', component: OrderManagementComponent},

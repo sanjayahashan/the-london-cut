@@ -7,43 +7,43 @@
       </mat-form-field>
       <div class="row">
           <div class="col-md-6">
-            <form [formGroup]="OrdersForm" (ngSubmit)="onSubmit()">
-              <input type="hidden" formControlName="_id">
+            <form [formGroup]="ordersForm" (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="orderId">
               <mat-form-field appearance="outline">
                     <mat-label>Order Number</mat-label>
-                    <input matInput placeholder="">
+                    <input matInput #orderNo formControlName="orderNo" placeholder="">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Order Description</mat-label>
-                    <textarea matInput  rows="5" placeholder=""></textarea>
+                    <textarea matInput #orderDes formControlName="orderDes" rows="5" placeholder=""></textarea>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Coustmer Name</mat-label>
-                    <input matInput placeholder="">
+                    <input matInput #customerName formControlName="customerName" placeholder="">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Coustmer's Address</mat-label>
-                    <input matInput placeholder="">
+                    <input matInput #customerAdd formControlName="customerAdd" placeholder="">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Contact No</mat-label>
-                    <input matInput placeholder="">
+                    <input matInput #contactNo formControlName="contactNo" placeholder="">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Order Place Date</mat-label>
-                    <input matInput [matDatepicker]="fdate" placeholder="Choose a date">
+                    <input matInput #placedDate formControlName ="placedDate" placeholder="Choose a date">
                     <mat-datepicker-toggle matSuffix [for]="fdate"></mat-datepicker-toggle>
-                    <mat-datepicker #fdate></mat-datepicker>
+                    
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                         <mat-label>Order Completion Date</mat-label>
-                        <input matInput [matDatepicker]="ldate" placeholder="Choose a date">
+                        <input matInput #completedDate formControlName="completedDate" placeholder="Choose a date">
                         <mat-datepicker-toggle matSuffix [for]="ldate"></mat-datepicker-toggle>
-                        <mat-datepicker #ldate></mat-datepicker>
+                        
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                         <mat-label>Payment Information</mat-label>
-                <mat-select #displayType (selectionChange)="display(displayType.value)"> 
+                <mat-select #paymentInfo formControlName="paymentInfo"> 
                         <mat-option value="No Payment Paid">No Payment</mat-option>  
                         <mat-option value="Advanced Payment Paid " selected>Advacnced Payment</mat-option>
                         <mat-option value="Full Payment Paid">Full Payment</mat-option>
@@ -51,7 +51,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                         <mat-label>Paid Amount</mat-label>
-                        <input matInput placeholder="">
+                        <input matInput #amount formControlName="amount" placeholder="">
                 </mat-form-field>
                 <mat-card-actions>
                         <div class="example-button-row">

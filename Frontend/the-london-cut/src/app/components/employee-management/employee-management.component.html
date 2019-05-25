@@ -1,3 +1,58 @@
-<p>
-  employee-management works!
-</p>
+<div class="container">
+  <h2>Employee Mangement</h2>
+        <mat-form-field appearance="legacy">
+          <mat-label>Search</mat-label>
+          <input matInput #term (keyup)="search(term.value)">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <div class="row">
+            <div class="col-md-6">
+              <form [formGroup]="OrdersForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" formControlName="_id">
+                <mat-form-field appearance="outline">
+                      <mat-label>Employee ID</mat-label>
+                      <input matInput placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Employee Name</mat-label>
+                      <input matInput placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Address</mat-label>
+                      <input matInput placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Contact No</mat-label>
+                      <input matInput placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Gender</mat-label>
+                  <mat-select #displayType (selectionChange)="display(displayType.value)"> 
+                          <mat-option value="Male">Male</mat-option>  
+                          <mat-option value="Female" selected>Female</mat-option>
+                  </mat-select>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Work Started Date</mat-label>
+                      <input matInput [matDatepicker]="fdate" placeholder="Choose a date">
+                      <mat-datepicker-toggle matSuffix [for]="fdate"></mat-datepicker-toggle>
+                      <mat-datepicker #fdate></mat-datepicker>
+                          
+                  </mat-form-field>
+                  <mat-card-actions>
+                          <div class="example-button-row">
+                          <button mat-flat-button color="primary">Submit</button>    
+                          </div>
+                  </mat-card-actions>  
+              </form>
+            </div>
+        
+            <div class="col-md-6">
+            </div>
+          </div>
+        </div>
+        
+  
+        
+  
+    
