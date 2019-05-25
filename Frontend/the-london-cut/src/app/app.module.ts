@@ -14,6 +14,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { OrderManagementComponent } from './components/order-management/order-management.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { RentComponent } from './components/inventory/rent/rent.component';
+import { OrdersListComponent } from './components/orders-list/orders-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RentComponent } from './components/inventory/rent/rent.component';
     OrderManagementComponent,
     LandingComponent,
     RentComponent,
+    OrdersListComponent
   ],
   imports: [
     BrowserModule,

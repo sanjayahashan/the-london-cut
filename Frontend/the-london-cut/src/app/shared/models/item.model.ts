@@ -5,6 +5,7 @@ export class Item {
     description: string;
     quantity: number;
     type: string;
+    price: number;
     suit_category: string;
     color: String;
     customer: Rent;
