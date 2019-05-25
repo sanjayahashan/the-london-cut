@@ -13,7 +13,8 @@ export class EmployeeManagementComponent implements OnInit {
   employee : Employee;
 
   employeesForm = new FormGroup ({
-    empId: new FormControl(),
+    employeeId: new FormControl(),
+    empId:new FormControl(''),
     empName: new FormControl(''),
     empAdd: new FormControl(''),
     empContact: new FormControl(''),

@@ -1,5 +1,6 @@
 export class Employee {
     
+    employeeId: string;
     empId: string;
     empName: string;
     empAdd: string;
