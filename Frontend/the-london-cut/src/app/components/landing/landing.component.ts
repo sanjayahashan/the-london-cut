@@ -12,4 +12,8 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
   }
 
+  getUrl(){
+    return "url('../../../assets/img/background.jpg')";
+  }
+
 }
