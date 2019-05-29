@@ -16,7 +16,7 @@ export class OrderManagementComponent implements OnInit {
   
 
     ordersForm = new FormGroup ({
-    orderId: new FormControl(),
+    _id: new FormControl(),
     orderNo: new FormControl(''),
     orderDes: new FormControl(''),
     customerName: new FormControl(''),
@@ -39,18 +39,18 @@ export class OrderManagementComponent implements OnInit {
     
   }
 
-  // onSubmit() {
-  //   if(!this.ordersForm.get('orderId').value) {
-  //     this.order = this.ordersForm.value;
-  //     this.orderService.add(this.order).subscribe(order => {
-  //     });
-  //   }
-  //   else {
-  //     this.order = this.ordersForm.value;
-  //     this.orderService.update(this.order).subscribe(order => {
+  onSubmit() {
+    if(!this.ordersForm.get('_id').value) {
+      this.order = this.ordersForm.value;
+      this.orderService.add(this.order).subscribe(order => {
+      });
+    }
+    else {
+      this.order = this.ordersForm.value;
+      this.orderService.update(this.order).subscribe(order => {
         
-  //     });
-  //   }
-  // }
+      });
+    }
+  }
 
 }
