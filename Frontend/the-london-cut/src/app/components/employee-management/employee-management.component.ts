@@ -13,7 +13,7 @@ export class EmployeeManagementComponent implements OnInit {
   employee : Employee;
 
   employeesForm = new FormGroup ({
-    employeeId: new FormControl(),
+    _id: new FormControl(),
     empId:new FormControl(''),
     empName: new FormControl(''),
     empAdd: new FormControl(''),
@@ -31,18 +31,18 @@ export class EmployeeManagementComponent implements OnInit {
   ngOnInit() {
   }
 
-  // onSubmit() {
-  //   if(!this.employeesForm.get('employeeId').value) {
-  //     this.employee = this.employeesForm.value;
-  //     this.employeeService.add(this.employee).subscribe(order => {
-  //     });
-  //   }
-  //   else {
-  //     this.employee = this.employeesForm.value;
-  //     this.employeeService.update(this.employee).subscribe(order => {
+  onSubmit() {
+    if(!this.employeesForm.get('_id').value) {
+      this.employee = this.employeesForm.value;
+      this.employeeService.add(this.employee).subscribe(order => {
+      });
+    }
+    else {
+      this.employee = this.employeesForm.value;
+      this.employeeService.update(this.employee).subscribe(order => {
         
-  //     });
-  //   }
-  // }
+      });
+    }
+  }
 
 }
