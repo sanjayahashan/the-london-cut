@@ -1,3 +1,7 @@
-.navbar {
-  background-color: blue;
+.navbar-brand {
+  color: aliceblue;
+}
+
+.material-icons {
+  color: aliceblue;
 }
