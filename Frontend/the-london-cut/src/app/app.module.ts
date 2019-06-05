@@ -15,6 +15,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { RentComponent } from './components/inventory/rent/rent.component';
 import { EmployeeManagementComponent } from './components/employee-management/employee-management.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./employee-management.component.css']
 })
 export class EmployeeManagementComponent implements OnInit {
+  
   employee : Employee;
 
   employeesForm = new FormGroup ({
