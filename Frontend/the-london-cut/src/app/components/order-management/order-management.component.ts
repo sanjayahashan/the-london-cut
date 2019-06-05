@@ -54,17 +54,29 @@ export class OrderManagementComponent implements OnInit {
     )));
   }
 
-  display(description: String) {
-    this.orderList = this.orderService.all().pipe(map(
-      orders => orders.filter(order => order.orderDes==description)
-    ));
-  }
 
   deleteItem(id) {
     this.orderService.delete(id).subscribe(data => {
       console.log(data);
     });
   }
+
+  onEdit(order){
+
+    this.ordersForm.controls.orderNo.setValue(order.orderNo)
+    this.ordersForm.controls.orderDes.setValue(order.orderDes)
+    this.ordersForm.controls.customerName.setValue(order.customerName)
+    this.ordersForm.controls.customerAdd.setValue(order.customerAdd)
+    this.ordersForm.controls.contactNo.setValue(order.contactNo)
+    this.ordersForm.controls.placedDate.setValue(order.placedDate)
+    this.ordersForm.controls.completedDate.setValue(order.completedDate)
+    this.ordersForm.controls.paymentInfo.setValue(order.paymentInfo)
+    this.ordersForm.controls.amount.setValue(order.amount)
+    
+    console.log(order)
+  }
+
+  
 
   
 
