@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+const ctrlUser = require('../controllers/user.controller');
+
+router.post('/register', ctrlUser.register);
 router.use('/items', require('../controllers/ItemController'));
 router.use('/income', require('../controllers/IncomeController'));
 router.use('/orders', require('../controllers/OrderController'));

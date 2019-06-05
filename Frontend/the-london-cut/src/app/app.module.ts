@@ -15,6 +15,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { RentComponent } from './components/inventory/rent/rent.component';
 import { EmployeeManagementComponent } from './components/employee-management/employee-management.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserComponent } from './user/user.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RentComponent,
     EmployeeManagementComponent,
     NavbarComponent,
+    UserComponent,
+    SignUpComponent,
   
   ],
   imports: [

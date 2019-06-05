@@ -1,0 +1,10 @@
+{
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb+srv://sanjay:sanjay123@london-cut-fca18.mongodb.net/test"
+  },
+  "production": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb+srv://sanjay:sanjay123@london-cut-fca18.mongodb.net/test"
+  }
+}
