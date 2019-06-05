@@ -64,7 +64,7 @@
                                 
                                 
                                        
-                                   <tr *ngFor="let order of employeeList | async" class="table-striped">
+                                   <tr *ngFor="let employee of employeeList | async" class="table-striped">
                                   <td>{{employee.empId}}</td>
                                   <td>{{employee.empName}}</td>
                                   <td>{{employee.empContact}}</td>
@@ -72,10 +72,10 @@
                                  
                             
                                      <td>
-                                      <a class="action-btn" style="color:rgb(36, 143, 192); cursor: pointer" (click)="onEdit(order._id)">
+                                      <a class="action-btn" style="color:rgb(36, 143, 192); cursor: pointer" (click)="onEdit(employee)">
                                         <i class="material-icons">edit</i>
                                       </a>
-                                      <a class="action-btn" style="color:lightcoral; cursor: pointer" (click)="deleteEmployee(order._id)">
+                                      <a class="action-btn" style="color:lightcoral; cursor: pointer" (click)="deleteEmployee(employee._id)">
                                         <i class="material-icons">delete</i>
                                       </a>
                                     </td>

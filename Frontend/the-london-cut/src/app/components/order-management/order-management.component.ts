@@ -92,6 +92,7 @@ export class OrderManagementComponent implements OnInit {
         
       });
     }
+    console.log(this.ordersForm)
   }
 
 }

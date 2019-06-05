@@ -58,6 +58,17 @@ export class EmployeeManagementComponent implements OnInit {
     });
   }
 
+  onEdit(employee){
+
+    this.employeesForm.controls.empId.setValue(employee.empId)
+    this.employeesForm.controls.empName.setValue(employee.empName)
+    this.employeesForm.controls.empAdd.setValue(employee.empAdd)
+    this.employeesForm.controls.empContact.setValue(employee.empContact)
+    this.employeesForm.controls.empGender.setValue(employee.empGender)
+    this.employeesForm.controls.startDate.setValue(employee.startDate)
+
+  }
+
 
   onSubmit() {
     if(!this.employeesForm.get('_id').value) {
@@ -71,6 +82,7 @@ export class EmployeeManagementComponent implements OnInit {
         
       });
     }
+    console.log(this.employeesForm)
   }
 
 }
