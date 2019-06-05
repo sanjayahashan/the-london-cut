@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Employee } from 'src/app/shared/models/employee.model';
 import { EmployeeService } from 'src/app/shared/services/employee.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, from } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-employee-management',
@@ -10,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./employee-management.component.css']
 })
 export class EmployeeManagementComponent implements OnInit {
-  
+  employeeList: Observable<Employee[]>;
   employee : Employee;
 
   employeesForm = new FormGroup ({
@@ -30,7 +32,32 @@ export class EmployeeManagementComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getItems();
   }
+
+  getItems() {
+    this.employeeList = this.employeeService.all();
+    console.log(this.employeeList);
+  }
+
+  search(term: string) {
+    this.employeeList = this.employeeService.all().pipe(map(
+      employees => employees.filter(employee => employee.empId.toLowerCase().includes(term.toLowerCase())
+    )));
+  }
+
+  display(description: String) {
+    this.employeeList = this.employeeService.all().pipe(map(
+      employees => employees.filter(employee => employee.empId==description)
+    ));
+  }
+
+  deleteEmployee(id) {
+    this.employeeService.delete(id).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 
   onSubmit() {
     if(!this.employeesForm.get('_id').value) {
