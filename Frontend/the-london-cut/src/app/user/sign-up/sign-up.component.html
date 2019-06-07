@@ -1,100 +1,223 @@
-<p>
-  sign-up works!
-</p>
+<!-- <form #signUpForm="ngForm">
+  <input type="text" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name">
+  <input type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email">
+  <input type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Enter Password">
+  <input type="submit" value="Sign Up">
+</form> -->
 
 <!-- Material form register -->
-<mdb-card>
 
-  <mdb-card-header class="info-color white-text text-center py-4">
-    <h5>
+<div style="background-color: rgb(143, 202, 212)">
+
+<div class="container">
+  <br><br><br><br>
+<mat-card class="example-card" style="background-image: url('assets/img/register.jpg'); background-repeat: no-repeat; background-size: cover; height: 700px">
+
+  <mat-card-title class="text-center py-4">
+    <h2>
       <strong>Sign up</strong>
-    </h5>
-  </mdb-card-header>
+    </h2>
+  </mat-card-title>
+
+  <hr>
 
   <!--Card content-->
-  <mdb-card-body class="px-lg-5 pt-0">
+  <mat-card-content class="px-lg-5 pt-0">
 
     <!-- Form -->
-    <form class="text-center" style="color: #757575;">
+    <form class="text-center" [formGroup]="signUpForm">
 
       <div class="form-row">
         <div class="col">
           <!-- First name -->
           <div class="md-form">
-            <input type="text" id="materialRegisterFormFirstName" class="form-control" mdbInput>
-            <label for="materialRegisterFormFirstName">First name</label>
+            <mat-form-field>
+              <mat-label appearance="outline">
+                <p style="color: rgb(1, 1, 10)"><strong>First Name</strong></p>
+              </mat-label>
+              <input matInput id="materialRegisterFormFirstName" formControlName="firstName" class="form-control" matInput required>
+              <mat-error >
+                This field cannot be empty!
+              </mat-error>
+            </mat-form-field>
           </div>
         </div>
         <div class="col">
           <!-- Last name -->
           <div class="md-form">
-            <input type="email" id="materialRegisterFormLastName" class="form-control" mdbInput>
-            <label for="materialRegisterFormLastName">Last name</label>
+            <mat-form-field>
+              <mat-label appearance="outline">
+                  <p style="color: rgb(1, 1, 10);"><strong>Last Name</strong></p>
+              </mat-label>
+              <input type="email" id="materialRegisterFormLastName" formControlName="lastName" class="form-control" matInput>
+              <mat-error>
+                This field cannot be empty!
+              </mat-error>
+            </mat-form-field>
           </div>
         </div>
       </div>
 
       <!-- E-mail -->
       <div class="md-form mt-0">
-        <input type="email" id="materialRegisterFormEmail" class="form-control" mdbInput>
-        <label for="materialRegisterFormEmail">E-mail</label>
+        <mat-form-field>
+          <mat-label appearance="outline">
+              <p style="color: rgb(1, 1, 10);"><strong>Email</strong></p>
+          </mat-label>
+          <input type="email" id="materialRegisterFormEmail" formControlName="email" class="form-control" matInput>
+          <mat-error>
+              Enter valid email!
+          </mat-error>
+        </mat-form-field>
       </div>
 
       <!-- Password -->
       <div class="md-form">
-        <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock"
-          mdbInput>
-        <label for="materialRegisterFormPassword">Password</label>
-        <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-          At least 8 characters and 1 digit
-        </small>
+        <mat-form-field>
+          <mat-label appearance="outline">
+              <p style="color: rgb(1, 1, 10);"><strong>Password</strong></p>
+          </mat-label>
+          <input type="password" id="materialRegisterFormPassword" formControlName="password" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" matInput>
+          <mat-error>
+            The password should have at least 8 characters!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="md-form">
+        <mat-form-field>
+          <mat-label appearance="outline">
+              <p style="color: rgb(1, 1, 10);"><strong>Confirm Password</strong></p>
+          </mat-label>
+          <input type="password" id="materialRegisterFormPassword" formControlName="confirmPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" matInput>
+          <mat-error>
+            Two passwords are mismatch!
+          </mat-error>
+        </mat-form-field>
       </div>
 
       <!-- Phone number -->
-      <div class="md-form">
+      <!-- <div class="md-form">
         <input type="text" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock"
-          mdbInput>
+          matInput>
         <label for="materialRegisterFormPhone">Phone number</label>
         <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
           Optional - for two step authentication
         </small>
-      </div>
+      </div> -->
 
       <!-- Newsletter -->
-      <mdb-checkbox>Subscribe to our newsletter</mdb-checkbox>
+      <!-- <mat-checkbox>Subscribe to our newsletter</mat-checkbox> -->
 
       <!-- Sign up button -->
-      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
-        type="submit">Sign in</button>
+      <div class="example-button-row">
+          <button mat-raised-button color="primary" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" type="submit" style="width: 30%">
+              <mat-icon matSuffix>save_alt</mat-icon>
+            Sign in
+          </button>
+      </div>
 
       <!-- Social register -->
-      <p>or sign up with:</p>
+      <!-- <p>or sign up with:</p>
 
       <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="facebook"></mdb-icon>
+        <mat-icon fab icon="facebook"></mat-icon>
       </a>
       <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="twitter"></mdb-icon>
+        <mat-icon fab icon="twitter"></mat-icon>
       </a>
       <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="linkedin"></mdb-icon>
+        <mat-icon fab icon="linkedin"></mat-icon>
       </a>
       <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="heart"></mdb-icon>
-      </a>
-
-      <hr>
+        <mat-icon fab icon="heart"></mat-icon>
+      </a> -->
 
       <!-- Terms of service -->
-      <p>By clicking
+      <p style="color: rgb(1, 1, 10)">
+        <strong>By clicking
         <em>Sign up</em> you agree to our
-        <a href="" target="_blank">terms of service</a> and
-        <a href="" target="_blank">terms of service</a>. </p>
+        <a href="#" target="_blank">terms of service</a> and
+        <a href="#" target="_blank">terms of service</a>. 
+        </strong>
+      </p>
 
     </form>
     <!-- Form -->
 
-  </mdb-card-body>
+  </mat-card-content>
 
-</mdb-card>
+</mat-card>
+</div>
 <!-- Material form register -->
+</div>
+<!--Footer-->
+<footer class="page-footer text-center font-small mt-4 wow fadeIn" style="background-color: rgb(143, 202, 212)">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank" role="button">Download MDB
+        <i class="fas fa-download ml-2"></i>
+      </a>
+      <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank" role="button">Start free tutorial
+        <i class="fas fa-graduation-cap ml-2"></i>
+      </a>
+    </div>
+    <!--/.Call to action-->
+  
+    <hr class="my-4">
+  
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+        Facebook
+        <i class="fab fa-facebook-f mr-3"></i>
+      </a>
+  
+      <a href="https://twitter.com/MDBootstrap" target="_blank">
+        Twitter
+        <i class="fab fa-twitter mr-3"></i>
+      </a>
+  
+      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+        Youtube
+        <i class="fab fa-youtube mr-3"></i>
+      </a>
+  
+      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+        Google+
+        <i class="fab fa-google-plus-g mr-3"></i>
+      </a>
+  
+      <a href="https://dribbble.com/mdbootstrap" target="_blank">
+        Dribbble
+        <i class="fab fa-dribbble mr-3"></i>
+      </a>
+  
+      <a href="https://pinterest.com/mdbootstrap" target="_blank">
+        Pinterest
+        <i class="fab fa-pinterest mr-3"></i>
+      </a>
+  
+      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+        Github
+        <i class="fab fa-github mr-3"></i>
+      </a>
+  
+      <a href="http://codepen.io/mdbootstrap/" target="_blank">
+        Codepen
+        <i class="fab fa-codepen mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+  
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2018 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+    </div>
+    <!--/.Copyright-->
+  
+  </footer>
+  <!--/.Footer-->

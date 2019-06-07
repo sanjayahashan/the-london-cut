@@ -8,6 +8,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { RentComponent } from './components/inventory/rent/rent.component';
 import { EmployeeManagementComponent } from './components/employee-management/employee-management.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'inventory/edit/:id', component: ItemCreateComponent},
   { path: 'rent/:id', component: RentComponent},
 
-  { path: 'signup', component: SignUpComponent},
+  { path: 'signup', component: UserComponent,
+    children: [{ path: '', component: SignUpComponent }]
+  },
 
   { path: 'ordermng', component: OrderManagementComponent},
   { path: 'employee', component: EmployeeManagementComponent},

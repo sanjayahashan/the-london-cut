@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './components/inventory/item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemCreateComponent } from './components/inventory/item-create/item-create.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
