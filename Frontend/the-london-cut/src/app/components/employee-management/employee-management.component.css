@@ -8,12 +8,32 @@
   
 }
 
-.employeeFourm{
-  width: 100%;
-  height: 100%;
-  margin-top: 10px;
+
+
+.emp{
+  opacity: 50%;
+  
+  background-size: 100%;
+  
 }
 
-.example-card{
-  width: 500px;
+.card1{
+  width: 75%;
+  background:transparent;
 }
+.card2{
+  
+  background:transparent;
+}
+
+.Search{
+  margin-top: 10px;
+  width: 100%;
+  
+}
+
+.title{
+  margin-left: 10px;
+  color:black;
+}
+
