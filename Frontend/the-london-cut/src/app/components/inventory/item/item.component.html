@@ -36,7 +36,7 @@
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{ item.name }}</mat-card-title>
           </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <img mat-card-image [src]="sanitize(item.image)" alt="{{item.name}}" style="height: 345px;">
           <mat-card-content>
             <p>
               {{item.description}}

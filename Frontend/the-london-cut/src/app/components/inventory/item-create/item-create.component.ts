@@ -11,6 +11,8 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 })
 export class ItemCreateComponent implements OnInit {
   item:Item;
+  selectedFile: File = null;
+  imageURL: any;
 
   itemForm = new FormGroup ({
     _id: new FormControl(),
@@ -20,6 +22,7 @@ export class ItemCreateComponent implements OnInit {
     price: new FormControl(''),
     type: new FormControl(''),
     suit_category: new FormControl(''),
+    image: new FormControl()
   });
 
   constructor(
@@ -32,6 +35,7 @@ export class ItemCreateComponent implements OnInit {
       let id = this.route.snapshot.paramMap.get('id');
       this.itemService.get(id).subscribe(item => {
         this.itemForm.patchValue(item);
+        this.imageURL = 'http://localhost:3000/' + item.image;
       });
     }
   }
@@ -50,6 +54,23 @@ export class ItemCreateComponent implements OnInit {
       this.itemService.update(this.item).subscribe(item => {
         console.log(item);
       });
+
+      //file upload
+
     }
+  }
+
+  onFileSelected(event) {
+    // console.log(event);
+    this.selectedFile = event.target.files[0];
+    this.itemForm.patchValue({
+      image: this.selectedFile
+    });
+    console.log(this.selectedFile);
+
+    const reader = new FileReader();
+    reader.onload = e => this.imageURL = reader.result;
+
+    reader.readAsDataURL(this.selectedFile);
   }
 }

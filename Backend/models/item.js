@@ -28,6 +28,7 @@ var itemSchema = new Schema({
         type:String
     },
     colors: String,
+    image: String,
     customer: {
         name: {
             type: String,

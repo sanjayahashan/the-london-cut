@@ -15,6 +15,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { RentComponent } from './components/inventory/rent/rent.component';
 import { EmployeeManagementComponent } from './components/employee-management/employee-management.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NgBootstrapModule } from './shared/ng-bootstrap/ng-bootstrap.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
@@ -40,6 +41,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    NgBootstrapModule,
     MatCardModule,
     MatPaginatorModule
   ],
