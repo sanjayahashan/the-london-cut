@@ -1,11 +1,12 @@
+
 <div class ="emp">
   <mat-card class = "formcard">
       <div class = "menu">
           <mat-card-title>
               <h2>Employee Mangement</h2>
           </mat-card-title>
-          <mat-form-field class = "Search">
-              <mat-label ><b>Search</b></mat-label>
+          <mat-form-field >
+              <mat-label class = "Search" >Search</mat-label>
               <input matInput #term (keyup)="search(term.value)">
               <mat-icon matSuffix>search</mat-icon>
           </mat-form-field>
