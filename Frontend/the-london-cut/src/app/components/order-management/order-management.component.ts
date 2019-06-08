@@ -62,7 +62,7 @@ export class OrderManagementComponent implements OnInit {
   }
 
   onEdit(order){
-
+    this.ordersForm.controls._id.setValue(order._id)
     this.ordersForm.controls.orderNo.setValue(order.orderNo)
     this.ordersForm.controls.orderDes.setValue(order.orderDes)
     this.ordersForm.controls.customerName.setValue(order.customerName)

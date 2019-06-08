@@ -35,6 +35,7 @@ export class ItemCreateComponent implements OnInit {
       let id = this.route.snapshot.paramMap.get('id');
       this.itemService.get(id).subscribe(item => {
         this.itemForm.patchValue(item);
+        this.imageURL = 'http://localhost:3000/' + item.image;
       });
     }
   }
