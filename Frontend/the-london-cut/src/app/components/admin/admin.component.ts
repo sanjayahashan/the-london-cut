@@ -43,9 +43,9 @@ export class AdminComponent implements OnInit {
         labels: this.labelss,
         datasets: [
           {
-            borderColor: "#1d7af3",
-            pointBorderColor: "#FFF",
-            pointBackgroundColor: "#1d7af3",
+            borderColor: "#FFFFFF",
+            pointBorderColor: "#FFFFFF",
+            pointBackgroundColor: "#FFFFFF",
             pointBorderWidth: 2,
             pointHoverRadius: 4,
             pointHoverBorderWidth: 1,
@@ -53,12 +53,44 @@ export class AdminComponent implements OnInit {
             backgroundColor: 'transparent',
             fill: true,
             borderWidth: 2,
-            label: 'Daily Income',
+            label: 'Income',
             data: this.c_amount,
             
           }
         ]
       },
+      options: {
+        legend: {
+          labels: {
+              fontColor: "white",
+              fontSize: 18
+          }
+        },
+        scaleFontColor: 'white',
+        responsive: true,
+        tooltips: {
+            mode: 'single',
+        },
+        scales: {
+            xAxes: [{ 
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                  fontColor: "#FFFFFF", // this here
+                },
+            }],
+            yAxes: [{
+                display: false,
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                  fontColor: "#FFFFFF", // this here
+                },
+            }],
+        }
+    } 
       
     })
 
