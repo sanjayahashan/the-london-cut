@@ -3,11 +3,12 @@ export class Item {
     _id?: string;
     name: string;
     description: string;
-    quantity: number;
+    quantity: string;
     type: string;
-    price: number;
+    price: string;
     suit_category: string;
-    color: String;
+    color: string;
+    image: File;
     customer: Rent;
 } 
 

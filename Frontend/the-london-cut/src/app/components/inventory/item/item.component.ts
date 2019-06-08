@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/shared/models/item.model';
 import { ItemService } from 'src/app/shared/services/item.service';
 import { filter, map } from 'rxjs/operators';
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-item',
@@ -13,7 +14,10 @@ import { Observable, from } from 'rxjs';
 export class ItemComponent implements OnInit {
   itemList: Observable<Item[]>;
 
-  constructor(private itemService: ItemService) { }
+  constructor(
+    private itemService: ItemService,
+    private sanitizer: DomSanitizer
+  ) { }
 
   ngOnInit() {
     this.getItems();
@@ -40,6 +44,10 @@ export class ItemComponent implements OnInit {
     this.itemService.delete(id).subscribe(data => {
       console.log(data);
     });
+  }
+
+  sanitize(url:string){
+    return this.sanitizer.bypassSecurityTrustUrl('http://localhost:3000\\' + url);
   }
 }
  
