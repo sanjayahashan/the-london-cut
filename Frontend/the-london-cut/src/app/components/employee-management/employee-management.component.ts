@@ -60,7 +60,7 @@ export class EmployeeManagementComponent implements OnInit {
   }
 
   onEdit(employee){
-
+    this.employeesForm.controls._id.setValue(employee._id)
     this.employeesForm.controls.empId.setValue(employee.empId)
     this.employeesForm.controls.empName.setValue(employee.empName)
     this.employeesForm.controls.empAdd.setValue(employee.empAdd)

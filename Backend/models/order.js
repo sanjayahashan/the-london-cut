@@ -25,11 +25,11 @@ var orderSchema = new Schema({
         required: true
     },
     placedDate: {
-        type: Date,
+        type: String,
         required: true
     },
     completedDate: {
-        type: Date,
+        type: String,
         required: true
     },
     paymentInfo: {
