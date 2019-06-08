@@ -1,114 +1,126 @@
-<div class="container">
-<h2>Order Mangement</h2>
-      <mat-form-field appearance="legacy">
-        <mat-label>Search</mat-label>
-        <input matInput #term (keyup)="search(term.value)">
-        <mat-icon matSuffix>search</mat-icon>
-      </mat-form-field>
-      <div class = "orderforum" >
-        <mat-card>
-          <div class="row">
-            <div class="col-md-6">
-              <form [formGroup]="ordersForm" (ngSubmit)="onSubmit()">
-                <input type="hidden" formControlName="_id">
-                <mat-form-field appearance="outline">
-                      <mat-label>Order Number</mat-label>
-                      <input matInput #orderNo formControlName="orderNo" placeholder="">
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                      <mat-label>Order Description</mat-label>
-                      <textarea matInput #orderDes formControlName="orderDes" rows="5" placeholder=""></textarea>
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                      <mat-label>Coustmer Name</mat-label>
-                      <input matInput #customerName formControlName="customerName" placeholder="">
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                      <mat-label>Coustmer's Address</mat-label>
-                      <input matInput #customerAdd formControlName="customerAdd" placeholder="">
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                      <mat-label>Contact No</mat-label>
-                      <input matInput #contactNo formControlName="contactNo" placeholder="">
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                      <mat-label>Order Place Date</mat-label>
-                      <input matInput #placedDate formControlName ="placedDate" placeholder="Choose a date">
-                      <mat-datepicker-toggle matSuffix [for]="fdate"></mat-datepicker-toggle>
-                      
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                          <mat-label>Order Completion Date</mat-label>
-                          <input matInput #completedDate formControlName="completedDate" placeholder="Choose a date">
-                          <mat-datepicker-toggle matSuffix [for]="ldate"></mat-datepicker-toggle>
-                          
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                          <mat-label>Payment Information</mat-label>
-                  <mat-select #paymentInfo formControlName="paymentInfo"> 
-                          <mat-option value="No Payment Paid">No Payment</mat-option>  
-                          <mat-option value="Advanced Payment Paid " selected>Advacnced Payment</mat-option>
-                          <mat-option value="Full Payment Paid">Full Payment</mat-option>
-                  </mat-select>
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                          <mat-label>Paid Amount</mat-label>
-                          <input matInput #amount formControlName="amount" placeholder="">
-                  </mat-form-field>
-                  <mat-card-actions>
-                          <div class="example-button-row">
-                          <button mat-flat-button color="primary">Submit</button>    
-                          </div>
-                  </mat-card-actions>  
-              </form>
-            </div>
-            <div class="col-md-4" >
-              <mat-card class="example-card">
-                  <table class="table table-md">
-                      <thead>
-                        <tr>
-                          <th scope="col"><b>Order No</b></th>
-                          <th scope="col"><b>Coustomer Name</b></th>
-                          <th scope="col"><b>Order Details</b></th>
-                          <th scope="col"></th>
-                         
-                        </tr>
-                      </thead>
-                      
-                        
-                        
-                               
-                           <tr *ngFor="let order of orderList | async" class="table-striped">
-                          <td>{{order.orderNo}}</td>
-                          <td>{{order.customerName}}</td>
-                          <td>{{order.orderDes}}</td>
-                          
-                         
-                    
-                             <td>
-                              <a class="action-btn" style="color:rgb(36, 143, 192); cursor: pointer" (click)="onEdit(order)">
-                                <i class="material-icons">edit</i>
-                              </a>
-                              <a class="action-btn" style="color:lightcoral; cursor: pointer" (click)="deleteItem(order._id)">
-                                <i class="material-icons">delete</i>
-                              </a>
-                            </td>
-                        </tr>
-                      
-                   
-                    </table>
-              </mat-card>
-            </div>
-        
-          </div>
-        </mat-card>
+<div class="ord">
+  <mat-card class="formcard">
+      <div class="menu">
+          <mat-card-title>
+              <h2>Order Mangement</h2>
+          </mat-card-title>
+          <mat-form-field appearance="legacy">
+            <mat-label>Search</mat-label>
+            <input matInput #term (keyup)="search(term.value)">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+    
       </div>
+            <div class="row">
+              
+              <div class="col-md-6">
+                  <mat-card class="card1">
+                <form [formGroup]="ordersForm" (ngSubmit)="onSubmit()">
+                  <input type="hidden" formControlName="_id">
+                  <mat-form-field appearance="outline">
+                        <mat-label>Order Number</mat-label>
+                        <input matInput #orderNo formControlName="orderNo" placeholder="">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Order Description</mat-label>
+                        <textarea matInput #orderDes formControlName="orderDes" rows="5" placeholder=""></textarea>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Coustmer Name</mat-label>
+                        <input matInput #customerName formControlName="customerName" placeholder="">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Coustmer's Address</mat-label>
+                        <input matInput #customerAdd formControlName="customerAdd" placeholder="">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Contact No</mat-label>
+                        <input matInput #contactNo formControlName="contactNo" placeholder="">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Order Place Date</mat-label>
+                        <input matInput #placedDate formControlName ="placedDate" placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="fdate"></mat-datepicker-toggle>
+                        
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                            <mat-label>Order Completion Date</mat-label>
+                            <input matInput #completedDate formControlName="completedDate" placeholder="Choose a date">
+                            <mat-datepicker-toggle matSuffix [for]="ldate"></mat-datepicker-toggle>
+                            
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                            <mat-label>Payment Information</mat-label>
+                    <mat-select #paymentInfo formControlName="paymentInfo"> 
+                            <mat-option value="No Payment Paid">No Payment</mat-option>  
+                            <mat-option value="Advanced Payment Paid " selected>Advacnced Payment</mat-option>
+                            <mat-option value="Full Payment Paid">Full Payment</mat-option>
+                    </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                            <mat-label>Paid Amount</mat-label>
+                            <input matInput #amount formControlName="amount" placeholder="">
+                    </mat-form-field>
+                    <mat-card-actions>
+                            <div class="example-button-row">
+                            <button mat-flat-button color="primary">Submit</button>    
+                            </div>
+                    </mat-card-actions>  
+                </form>
+              </mat-card>
+              </div>
+              <div class="col-md-4" >
+                <mat-card class="card2">
+                    <table class="table table-md">
+                        <thead>
+                          <tr>
+                            <th scope="col"><b>Order No</b></th>
+                            <th scope="col"><b>Coustomer Name</b></th>
+                            <th scope="col"><b>Order Details</b></th>
+                            <th scope="col"></th>
+                           
+                          </tr>
+                        </thead>
+                        
+                          
+                          
+                                 
+                             <tr *ngFor="let order of orderList | async" class="table-striped">
+                            <td>{{order.orderNo}}</td>
+                            <td>{{order.customerName}}</td>
+                            <td>{{order.orderDes}}</td>
+                            
+                           
+                      
+                               <td>
+                                <a class="action-btn" style="color:rgb(36, 143, 192); cursor: pointer" (click)="onEdit(order)">
+                                  <i class="material-icons">edit</i>
+                                </a>
+                                <a class="action-btn" style="color:lightcoral; cursor: pointer" (click)="deleteItem(order._id)">
+                                  <i class="material-icons">delete</i>
+                                </a>
+                              </td>
+                          </tr>
+                        
+                     
+                      </table>
+                </mat-card>
+              </div>
+            </div>
+          
+            
+
+</mat-card>
+</div>
+    
+
+ 
+      
       
     
 
       
-        
-</div>
+
       
 
       
