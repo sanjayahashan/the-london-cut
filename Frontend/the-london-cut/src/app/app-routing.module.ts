@@ -11,11 +11,13 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { UserComponent } from './user/user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { AuthGuard } from './auth/auth.guard';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { PreviousComponent } from './components/appointment/previous/previous.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent},
+  { path: '', redirectTo: '/index', pathMatch: 'full'},
+  { path: 'index', component: LandingComponent},
   { path: 'inventory', component: ItemComponent },
   { path: 'item-create', component: ItemCreateComponent},
   { path: 'inventory/edit/:id', component: ItemCreateComponent},
@@ -29,7 +31,7 @@ const routes: Routes = [
     children: [{ path: '', component: SignInComponent }]
   },
 
-  { path: 'userprofile', component: UserProfileComponent },
+  { path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard] },
 
   { path: 'ordermng', component: OrderManagementComponent},
   { path: 'employee', component: EmployeeManagementComponent},

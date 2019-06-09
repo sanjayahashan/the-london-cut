@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItemComponent } from './components/inventory/item/item.component';
@@ -20,9 +20,12 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { NgBootstrapModule } from './shared/ng-bootstrap/ng-bootstrap.module';
-import {MatCardModule} from '@angular/material/card';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { SideMenuComponent } from './components/admin/side-menu/side-menu.component';
+import { UserService } from './shared/services/user.service';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './auth/auth.interceptor';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { PreviousComponent } from './components/appointment/previous/previous.component';
 
@@ -58,7 +61,7 @@ import { PreviousComponent } from './components/appointment/previous/previous.co
     MatCardModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [UserService, AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
