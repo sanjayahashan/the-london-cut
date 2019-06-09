@@ -2,11 +2,14 @@
 
 require('./config/config');
 require('./models/user.model');
+require('./config/passportConfig');
 
 var express = require('express');
 var mongoose = require('mongoose');
 var body_parser = require('body-parser');
 var cors = require('cors');
+
+const passport = require('passport');
 const route = require('./routes/index.js');
 
 var app = express();
@@ -21,9 +24,10 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const PORT = 3000;
 
+// Middleware
 app.use(cors());
 app.use(body_parser.json());
-
+app.use(passport.initialize());
 app.use('/api', route);
 
 // error handler

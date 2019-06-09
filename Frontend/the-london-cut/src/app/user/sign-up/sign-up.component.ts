@@ -17,8 +17,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css'],
-  providers: [UserService]
+  styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
 
@@ -36,7 +35,7 @@ export class SignUpComponent implements OnInit {
 
   registerForm() {
     this.signUpForm = this.fb.group({
-      // userRole: [''],
+      userRole: ['2'],
       firstName: ['', [Validators.required]],
       lastName: ['',[Validators.required]],
       email: ['',[Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
@@ -55,6 +54,10 @@ export class SignUpComponent implements OnInit {
     else {
       return null
     }
+  }
+
+  get userRole() {
+    return this.signUpForm.get('userRole');
   }
 
   get firstName() {
@@ -95,6 +98,7 @@ export class SignUpComponent implements OnInit {
 
   resetForm(form: NgForm) {
     this.userService.selectedUser = {
+      userRole: '2',
       firstName: '',
       lastName: '',
       email: '',
