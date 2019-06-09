@@ -13,6 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ItemComponent implements OnInit {
   itemList: Observable<Item[]>;
+  displayValue = "";
 
   constructor(
     private itemService: ItemService,
@@ -35,9 +36,14 @@ export class ItemComponent implements OnInit {
   }
 
   display(type: String) {
-    this.itemList = this.itemService.all().pipe(map(
-      items => items.filter(item => item.type==type)
-    ));
+    if(type!="") {
+      this.itemList = this.itemService.all().pipe(map(
+        items => items.filter(item => item.type==type)
+      ));
+    }
+    else {
+      this.itemList = this.itemService.all();
+    }
   }
 
   deleteItem(id) {

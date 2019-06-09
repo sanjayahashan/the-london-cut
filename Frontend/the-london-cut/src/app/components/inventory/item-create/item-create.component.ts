@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Item } from 'src/app/shared/models/item.model';
 import { ItemService } from 'src/app/shared/services/item.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
@@ -16,8 +16,8 @@ export class ItemCreateComponent implements OnInit {
 
   itemForm = new FormGroup ({
     _id: new FormControl(),
-    name: new FormControl(''),
-    description: new FormControl(''),
+    name: new FormControl(Validators.required),
+    description: new FormControl(Validators.required),
     quantity: new FormControl(''),
     price: new FormControl(''),
     type: new FormControl(''),

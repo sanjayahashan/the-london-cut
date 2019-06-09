@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgBootstrapModule } from './shared/ng-bootstrap/ng-bootstrap.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { SideMenuComponent } from './components/admin/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     RentComponent,
     EmployeeManagementComponent,
     NavbarComponent,
-  
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
