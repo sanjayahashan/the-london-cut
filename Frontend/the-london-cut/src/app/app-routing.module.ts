@@ -12,6 +12,7 @@ import { UserComponent } from './user/user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
+import { PreviousComponent } from './components/appointment/previous/previous.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
@@ -33,7 +34,7 @@ const routes: Routes = [
   { path: 'ordermng', component: OrderManagementComponent},
   { path: 'employee', component: EmployeeManagementComponent},
   { path: 'appointment', component: AppointmentComponent},
-
+  { path: 'previous', component: PreviousComponent},
 
   // Admin
   { path: 'admin', component: AdminComponent}

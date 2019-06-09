@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Search Appointments</h2>
+  
+    <mat-form-field appearance="legacy">
+        <mat-label>Search</mat-label>
+        <input matInput #term (keyup)="search(term.value)">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    
+      <div class="table-responsive">
+          <table class="table">
+              <thead class=" text-primary">
+                  <!-- <th>ID</th> -->
+                  
+                  <th>Name</th>
+                  <th>Contact No</th>
+                  <th>Date</th> 
+                  <th>Time</th>
+                  
+              </thead>
+
+              <tbody>
+
+                  <tr *ngFor="let appointment of previousList| async">
+                   
+                    <td>{{ appointment.name}}</td>
+                    <td>{{ appointment.contactNo }}</td>
+                    <td>{{ appointment.date}}</td>  
+                    <td>{{ appointment.time }}</td>
+                    
+                    
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  

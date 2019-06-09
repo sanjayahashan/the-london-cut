@@ -10,5 +10,4 @@ router.use('/orders', require('../controllers/OrderController'));
 router.use('/employees',require('../controllers/EmployeeController'));
 router.use('/appointment', require('../controllers/AppointmentController'));
 
-
 module.exports = router

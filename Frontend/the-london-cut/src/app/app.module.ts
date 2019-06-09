@@ -24,6 +24,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SideMenuComponent } from './components/admin/side-menu/side-menu.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
+import { PreviousComponent } from './components/appointment/previous/previous.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
     UserProfileComponent,
     SignInComponent,
     SideMenuComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    PreviousComponent
   ],
   imports: [
     BrowserModule,
