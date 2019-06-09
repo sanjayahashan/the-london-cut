@@ -23,7 +23,7 @@ app.use(body_parser.json());
 app.use('/api', route);
 
 app.get('/',(req, res)=>{
-    res.send("roger i'm here babes");
+    res.send("server works!!!");
 });
 
 app.listen(PORT, ()=>{
