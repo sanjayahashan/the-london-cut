@@ -26,6 +26,7 @@ import { SideMenuComponent } from './components/admin/side-menu/side-menu.compon
 import { UserService } from './shared/services/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { AppointmentComponent } from './components/appointment/appointment.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     SignUpComponent,
     UserProfileComponent,
     SignInComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,

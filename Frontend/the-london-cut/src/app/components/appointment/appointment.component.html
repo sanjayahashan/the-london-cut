@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>New Appointment</h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+              <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" formControlName="_id">
+                <mat-form-field appearance="outline">
+                      <mat-label>Name</mat-label>
+                      <input matInput #orderNo formControlName="name" placeholder="">
+                  </mat-form-field>
+                  
+                  <mat-form-field appearance="outline">
+                      <mat-label>Contact No</mat-label>
+                      <input matInput #customerName formControlName="contactNo" placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Date</mat-label>
+                      <input matInput #customerAdd formControlName="date" placeholder="">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Time</mat-label>
+                    <input matInput #customerAdd formControlName="time" placeholder="">
+                </mat-form-field>
+                  
+                  <mat-card-actions>
+                          <div class="example-button-row">
+                          <button mat-flat-button color="primary">Submit</button>    
+                          </div>
+                  </mat-card-actions>  
+              </form>
+            </div>
+        
+            <div class="col-md-6">
+            </div>
+          </div>
+        </div>
+        
+  
+        
+  
+    
