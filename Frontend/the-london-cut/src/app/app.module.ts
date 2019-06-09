@@ -23,6 +23,7 @@ import { NgBootstrapModule } from './shared/ng-bootstrap/ng-bootstrap.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SideMenuComponent } from './components/admin/side-menu/side-menu.component';
+import { AppointmentComponent } from './components/appointment/appointment.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SideMenuComponent } from './components/admin/side-menu/side-menu.compon
     SignUpComponent,
     UserProfileComponent,
     SignInComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
