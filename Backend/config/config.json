@@ -1,0 +1,14 @@
+{
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb+srv://sanjay:sanjay123@london-cut-fca18.mongodb.net/test",
+    "JWT_SECRET": "SECRET#123",
+    "JWT_EXP":  "10m"
+  },
+  "production": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb+srv://sanjay:sanjay123@london-cut-fca18.mongodb.net/test",
+    "JWT_SECRET": "SECRET#123",
+    "JWT_EXP": "10m"
+  }
+}
