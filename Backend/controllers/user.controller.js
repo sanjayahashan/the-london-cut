@@ -6,7 +6,8 @@ module.exports.register = (req, res, next) => {
     console.log('inside register function.');
 
     var user = new User();
-    user.fullName = req.body.fullName;
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
     user.email = req.body.email;
     user.password = req.body.password;
     user.save((err, doc) => {

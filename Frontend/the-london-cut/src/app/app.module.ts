@@ -17,6 +17,8 @@ import { EmployeeManagementComponent } from './components/employee-management/em
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
     NavbarComponent,
     UserComponent,
     SignUpComponent,
+    UserProfileComponent,
+    SignInComponent,
   
   ],
   imports: [

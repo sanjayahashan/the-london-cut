@@ -25,7 +25,7 @@
   <mat-card-content class="px-lg-5 pt-0">
 
     <!-- Form -->
-    <form class="text-center" [formGroup]="signUpForm">
+    <form class="text-center" [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm)">
 
       <div class="form-row">
         <div class="col">
@@ -97,50 +97,34 @@
         </mat-form-field>
       </div>
 
-      <!-- Phone number -->
-      <!-- <div class="md-form">
-        <input type="text" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock"
-          matInput>
-        <label for="materialRegisterFormPhone">Phone number</label>
-        <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-          Optional - for two step authentication
-        </small>
-      </div> -->
+      <div class="alert alert-success" role="alert" *ngIf="showSuccessMessage">
+        Registered Successfully!
+      </div>
 
-      <!-- Newsletter -->
-      <!-- <mat-checkbox>Subscribe to our newsletter</mat-checkbox> -->
+      <div class="alert alert-danger" role="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>
 
       <!-- Sign up button -->
       <div class="example-button-row">
-          <button mat-raised-button color="primary" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" type="submit" style="width: 30%">
-              <mat-icon matSuffix>save_alt</mat-icon>
-            Sign in
+          <button mat-raised-button color="primary" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" type="submit" style="width: 30%" [disabled]="!signUpForm.valid">
+            <mat-icon matSuffix>save_alt</mat-icon>
+            Sign Up
           </button>
       </div>
 
-      <!-- Social register -->
-      <!-- <p>or sign up with:</p>
-
-      <a type="button" class="light-blue-text mx-2">
-        <mat-icon fab icon="facebook"></mat-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mat-icon fab icon="twitter"></mat-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mat-icon fab icon="linkedin"></mat-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mat-icon fab icon="heart"></mat-icon>
-      </a> -->
-
       <!-- Terms of service -->
       <p style="color: rgb(1, 1, 10)">
-        <strong>By clicking
+        <strong>
+          By clicking
         <em>Sign up</em> you agree to our
         <a href="#" target="_blank">terms of service</a> and
         <a href="#" target="_blank">terms of service</a>. 
         </strong>
+      </p>
+
+      <p>
+        <strong>Already registered?<a href="/login"> Login </a></strong>
       </p>
 
     </form>

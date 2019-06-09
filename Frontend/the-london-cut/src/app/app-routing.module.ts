@@ -9,6 +9,8 @@ import { RentComponent } from './components/inventory/rent/rent.component';
 import { EmployeeManagementComponent } from './components/employee-management/employee-management.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { UserComponent } from './user/user.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
@@ -20,6 +22,12 @@ const routes: Routes = [
   { path: 'signup', component: UserComponent,
     children: [{ path: '', component: SignUpComponent }]
   },
+
+  { path: 'login', component: UserComponent,
+    children: [{ path: '', component: SignInComponent }]
+  },
+
+  { path: 'userprofile', component: UserProfileComponent },
 
   { path: 'ordermng', component: OrderManagementComponent},
   { path: 'employee', component: EmployeeManagementComponent},
