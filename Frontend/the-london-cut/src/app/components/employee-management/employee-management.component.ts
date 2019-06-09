@@ -54,12 +54,13 @@ export class EmployeeManagementComponent implements OnInit {
 
   deleteEmployee(id) {
     this.employeeService.delete(id).subscribe(data => {
-      console.log(data);
+      
     });
+    window.location.reload();
   }
 
   onEdit(employee){
-
+    this.employeesForm.controls._id.setValue(employee._id)
     this.employeesForm.controls.empId.setValue(employee.empId)
     this.employeesForm.controls.empName.setValue(employee.empName)
     this.employeesForm.controls.empAdd.setValue(employee.empAdd)
@@ -75,12 +76,14 @@ export class EmployeeManagementComponent implements OnInit {
       this.employee = this.employeesForm.value;
       this.employeeService.add(this.employee).subscribe(order => {
       });
+      window.location.reload();
     }
     else {
       this.employee = this.employeesForm.value;
       this.employeeService.update(this.employee).subscribe(order => {
         
       });
+      window.location.reload();
     }
     console.log(this.employeesForm)
   }

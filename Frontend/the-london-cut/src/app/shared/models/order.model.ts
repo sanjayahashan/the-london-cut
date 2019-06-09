@@ -6,8 +6,8 @@ export class Order {
     customerName: string;
     customerAdd: string;
     contactNo: string;
-    placedDate: Date;
-    completedDate: Date;
+    placedDate: string;
+    completedDate: string;
     paymentInfo: string;
     amount:string;
     

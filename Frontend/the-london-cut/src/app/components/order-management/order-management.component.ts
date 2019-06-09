@@ -5,6 +5,7 @@ import { OrderService } from 'src/app/shared/services/order.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Observable, from } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
 
 
 
@@ -57,8 +58,9 @@ export class OrderManagementComponent implements OnInit {
 
   deleteItem(id) {
     this.orderService.delete(id).subscribe(data => {
-      console.log(data);
+      
     });
+    window.location.reload();
   }
 
   onEdit(order){
@@ -85,14 +87,14 @@ export class OrderManagementComponent implements OnInit {
       this.order = this.ordersForm.value;
       this.orderService.add(this.order).subscribe(order => {
       });
+      window.location.reload();
     }
     else {
       this.order = this.ordersForm.value;
       this.orderService.update(this.order).subscribe(order => {
-        
+      window.location.reload();  
       });
     }
-    console.log(this.ordersForm)
   }
 
 }
