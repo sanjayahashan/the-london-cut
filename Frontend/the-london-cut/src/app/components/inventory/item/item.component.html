@@ -11,17 +11,17 @@
     <div class="col-md-4">
       <mat-form-field>
     <mat-label>Display : </mat-label>
-    <mat-select #displayType (selectionChange)="display(displayType.value)">
+    <mat-select #displayType (selectionChange)="display(displayType.value)" [value]=''>
       <mat-option value="material" selected>Materials</mat-option>
       <mat-option value="suit">Suits</mat-option>
       <mat-option value="rental">Suits for rent</mat-option>
-      <mat-option value="">All</mat-option>
+      <mat-option value="" selected>All</mat-option>
     </mat-select>
   </mat-form-field>
   </div>
 
   <div class="col-md-4">
-    <button mat-fab routerLink="/create">
+    <button mat-fab routerLink="/item-create">
       <mat-icon aria-label="Example icon-button with a heart icon">add_circle</mat-icon>
     </button>
 
@@ -36,7 +36,7 @@
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{ item.name }}</mat-card-title>
           </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <img mat-card-image [src]="sanitize(item.image)" alt="{{item.name}}" style="height: 345px;">
           <mat-card-content>
             <p>
               {{item.description}}

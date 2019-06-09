@@ -1,10 +1,12 @@
+<app-side-menu></app-side-menu>
+
 <div class="container">
   <h2>Add an Item to the Inventory</h2>
 
   <div class="row">
     <div class="col-md-6">
 
-      <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
         <input type="hidden" formControlName="_id">
         <p>
           <mat-form-field appearance="outline">
@@ -59,10 +61,10 @@
           </mat-radio-group>
         </div>
 
-        
-            <mat-checkbox class="example-margin">Checked</mat-checkbox>
-            <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
-      
+        <p>
+            <label for="image"></label>
+            <input id="image" (change)="onFileSelected($event)" class="form-control" type="file" >
+          </p>
 
         <button mat-raised-button type="submit" color="primary">Save</button>
       </form>
@@ -75,7 +77,7 @@
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>{{ name.value }}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img mat-card-image [src]="imageURL" style="height: 345px;">
         <mat-card-content>
           <p>
             {{description.value}}

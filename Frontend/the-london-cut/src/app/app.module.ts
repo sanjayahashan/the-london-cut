@@ -19,6 +19,10 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { NgBootstrapModule } from './shared/ng-bootstrap/ng-bootstrap.module';
+import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { SideMenuComponent } from './components/admin/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     SignUpComponent,
     UserProfileComponent,
     SignInComponent,
-  
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,9 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    NgBootstrapModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

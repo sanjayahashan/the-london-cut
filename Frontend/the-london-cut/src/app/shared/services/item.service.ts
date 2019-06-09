@@ -17,10 +17,21 @@ export class ItemService {
   }
 
   add(item: Item): Observable<Item> {
-    let headers = new HttpHeaders();
-    headers.append('content-type', 'application/json');
+    // let headers = new HttpHeaders();
+    // headers.append('content-type', 'application/json');
 
-    return this.http.post<Item>(serverUrl, item)
+    let formData = new FormData();
+    formData.append('name', item.name);
+    formData.append('description', item.description);
+    formData.append('quantity', item.quantity);
+    formData.append('price', item.price);
+    formData.append('type', item.type);
+    formData.append('suit_category', item.suit_category);
+    formData.append('color', item.color);
+    formData.append('image', item.image);
+
+
+    return this.http.post<Item>(serverUrl, formData)
   }
 
   update(item: Item): Observable<Item> {

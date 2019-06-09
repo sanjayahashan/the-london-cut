@@ -11,6 +11,7 @@ const route = require('./routes/index.js');
 
 var app = express();
 
+app.use('/uploads', express.static('uploads'));
 
 const uri = "mongodb+srv://sanjay:sanjay123@london-cut-fca18.mongodb.net/test?retryWrites=true";
 mongoose.connect(uri, {useNewUrlParser:true});

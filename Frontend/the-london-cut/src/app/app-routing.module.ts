@@ -15,7 +15,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 const routes: Routes = [
   { path: '', component: LandingComponent},
   { path: 'inventory', component: ItemComponent },
-  { path: 'inventory/create', component: ItemCreateComponent},
+  { path: 'item-create', component: ItemCreateComponent},
   { path: 'inventory/edit/:id', component: ItemCreateComponent},
   { path: 'rent/:id', component: RentComponent},
 

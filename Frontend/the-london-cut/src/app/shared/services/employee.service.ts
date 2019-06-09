@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from '../models/employee.model';
 
-var serverUrl = 'http://localhost:3000/api/orders/';
+var serverUrl = 'http://localhost:3000/api/employees/';
 
 
 @Injectable({
@@ -20,7 +20,6 @@ export class EmployeeService {
   add(employee: Employee): Observable<Employee> {
     let headers = new HttpHeaders();
     headers.append('content-type', 'application/json');
-
     return this.http.post<Employee>(serverUrl, employee)
   }
 
