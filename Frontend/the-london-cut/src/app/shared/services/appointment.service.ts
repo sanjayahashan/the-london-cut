@@ -23,5 +23,11 @@ export class AppointmentService {
 
     return this.http.post<App>(serverUrl, app)
   }
+  
+
+ 
+  get(id: String): Observable<App> {
+    return this.http.get<App>(serverUrl + id);
+  }
 
 }

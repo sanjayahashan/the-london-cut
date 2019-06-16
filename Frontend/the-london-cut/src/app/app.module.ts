@@ -27,6 +27,7 @@ import { UserService } from './shared/services/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AppointmentComponent } from './components/appointment/appointment.component';
+import { PreviousComponent } from './components/appointment/previous/previous.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
     UserProfileComponent,
     SignInComponent,
     SideMenuComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    PreviousComponent
   ],
   imports: [
     BrowserModule,

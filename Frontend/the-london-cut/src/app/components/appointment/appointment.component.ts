@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { App } from 'src/app/shared/models/appointment.model';
 import { AppointmentService } from 'src/app/shared/services/appointment.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointment',
@@ -23,8 +23,9 @@ export class AppointmentComponent implements OnInit {
   });
 
   constructor(
-    private employeeService : AppointmentService,
+    private appointmentService : AppointmentService,
     private route : ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,15 +34,17 @@ export class AppointmentComponent implements OnInit {
   onSubmit() {
     if(!this.appointmentForm.get('_id').value) {
       this.appointment = this.appointmentForm.value;
-      this.employeeService.add(this.appointment).subscribe(order => {
+      this.appointmentService.add(this.appointment).subscribe(App => {
       });
+      this.router.navigate(['/previous'])
     }
     // else {
     //   this.appointment = this.appointmentForm.value;
-    //   this.employeeService.update(this.appointment).subscribe(order => {
+    //   this.e.update(this.appointment).subscribe(order => {
         
     //   });
     // }
   }
+
 
 }
