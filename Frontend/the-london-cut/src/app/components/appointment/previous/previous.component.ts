@@ -29,7 +29,11 @@ export class PreviousComponent implements OnInit {
     this.previousList = this.previousService.all();
     console.log(this.previousList);
   }
-
+  search(term: string) {
+    this.previousList = this.previousService.all().pipe(map(
+      items => items.filter(appointment => appointment.date.toLowerCase().includes(term.toLowerCase())
+    )));
+  }
   // search(term: string) {
   //   this.previousList = this.PreviousService.all().pipe(map(
   //     items => items.filter(item => item.name.toLowerCase().includes(term.toLowerCase())

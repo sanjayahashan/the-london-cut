@@ -20,12 +20,12 @@
               </thead>
 
               <tbody>
-
+                <!-- <tr ng-repeat="appointment in previousList.date | filter: searchFilter | limitTo: previousList.limit"> -->
                   <tr *ngFor="let appointment of previousList| async">
                    
                     <td>{{ appointment.name}}</td>
                     <td>{{ appointment.contactNo }}</td>
-                    <td>{{ appointment.date}}</td>  
+                    <td>{{ appointment.date.substring(0, 10)}}</td>  
                     <td>{{ appointment.time }}</td>
                     
                     
