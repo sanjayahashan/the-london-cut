@@ -34,6 +34,8 @@ export class UserService {
     return this.http.get(environment.apiBaseUrl+'/userProfile');
   }
 
+  sendMessage(user: User) {}
+
 
   // Helper Methods
   setToken(token: string) {
