@@ -17,11 +17,11 @@ import { PreviousComponent } from './components/appointment/previous/previous.co
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full'},
-  { path: 'index', component: LandingComponent},
-  { path: 'inventory', component: ItemComponent },
-  { path: 'item-create', component: ItemCreateComponent},
-  { path: 'inventory/edit/:id', component: ItemCreateComponent},
-  { path: 'rent/:id', component: RentComponent},
+  { path: 'index', component: LandingComponent },
+  { path: 'inventory', component: ItemComponent, canActivate: [AuthGuard] },
+  { path: 'item-create', component: ItemCreateComponent, canActivate: [AuthGuard] },
+  { path: 'inventory/edit/:id', component: ItemCreateComponent, canActivate: [AuthGuard] },
+  { path: 'rent/:id', component: RentComponent, canActivate: [AuthGuard] },
 
   { path: 'signup', component: UserComponent,
     children: [{ path: '', component: SignUpComponent }]
@@ -33,13 +33,13 @@ const routes: Routes = [
 
   { path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard] },
 
-  { path: 'ordermng', component: OrderManagementComponent},
-  { path: 'employee', component: EmployeeManagementComponent},
-  { path: 'appointment', component: AppointmentComponent},
+  { path: 'ordermng', component: OrderManagementComponent, canActivate: [AuthGuard] },
+  { path: 'employee', component: EmployeeManagementComponent, canActivate: [AuthGuard] },
+  { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard] },
   { path: 'previous', component: PreviousComponent},
 
   // Admin
-  { path: 'admin', component: AdminComponent}
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

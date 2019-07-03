@@ -20,6 +20,8 @@ export class UserService {
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' })};
 
+
+  //Http Methods
   postUser(user: User) {
     return this.http.post(environment.apiBaseUrl+'/register', user, this.noAuthHeader);
   }
@@ -33,7 +35,7 @@ export class UserService {
   }
 
 
-
+  // Helper Methods
   setToken(token: string) {
     localStorage.setItem('token', token);
   }

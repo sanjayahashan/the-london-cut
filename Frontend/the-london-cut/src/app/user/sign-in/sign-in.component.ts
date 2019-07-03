@@ -32,6 +32,9 @@ export class SignInComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm();
+    if (this.userService.isLoggedIn()){
+      this.router.navigateByUrl('/admin');
+    }
   }
 
   get email(){
@@ -56,22 +59,22 @@ export class SignInComponent implements OnInit {
         this.userService.setToken(res['token']);
         
         console.log("in user profile");
-        this.router.navigateByUrl('/admin');
-        // this.userService.getUserProfile().subscribe(
-        //   res => {
-        //     console.log("in response");
-        //     this.userDetails = res['user'];
-        //     console.log(this.userDetails);
-        //   },
-        //   err => {
-    
-        //   }
-        // );
-        // var role = this.userDetails.userRole;
-        // if (role == '2'){
-        //   console.log("this is customer");
-        //   this.router.navigateByUrl('/index');
-        // }
+        // this.router.navigateByUrl('/userprofile');
+
+        this.userService.getUserProfile().subscribe(
+          res => {
+            this.userDetails = res['user'];
+            console.log(this.userDetails);
+            console.log(this.userDetails.userRole);
+            if (this.userDetails.userRole == '2'){
+              this.router.navigateByUrl('/userprofile')
+            }
+            else if (this.userDetails.userRole == '1'){
+              this.router.navigateByUrl('/admin');
+            }
+          },
+          err => {}
+        );
       },
       err => {
         this.serverErrorMessages = err.error.message;
