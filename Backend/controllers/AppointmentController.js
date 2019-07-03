@@ -23,4 +23,28 @@ router.post('/', (req, res, next)=>{
 
 });
 
+router.get('/', function(req, res, next) {
+    App.find(function(err, items) {
+        if(err) {
+            res.json(err);
+        }
+        else {
+            res.json(items);
+        }
+    });
+}); 
+   
+router.get('/id', function(req, res, next) {
+    App.findById(req.params.id, function(err, item) {
+        if(err) {
+            res.json(err);
+        }
+        else {
+            res.json(item);
+        }
+    });
+});
+
+
+
 module.exports = router;
