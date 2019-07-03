@@ -4,7 +4,7 @@
   <h2>Rent Item</h2>
 
   <div class="alert alert-primary" role="alert" style="text-align: center;">
-      Remaining Fee : {{price.value*days - advanced.value}}
+      Remaining Fee : {{ price.value*days - advanced.value }}
   </div>
 
   <div class="row">
@@ -47,7 +47,7 @@
           <p>
             <mat-form-field appearance="outline">
                 <mat-label>Handover Date</mat-label>
-              <input matInput formControlName="date" [matDatepicker]="picker" placeholder="Completion Date">
+              <input matInput formControlName="date" [matDatepicker]="picker" placeholder="Completion Date" (dateChange)="calculateFee($event)">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -67,5 +67,25 @@
       </form>
       <button mat-raised-button color="primary" (click)="collect()">Collect Item</button>
     </div>
+
+    <div class="col-md-6">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{ item.name }}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image [src]="sanitize(item.image)" alt="{{item.name}}" style="height: 345px;">
+          <mat-card-content>
+            <p>
+              {{item.description}}
+            </p>
+            <p>
+                Remaining Quantity : {{item.quantity}}
+            </p>
+            <p>
+                Price : {{item.price}} LKR
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
   </div>
 </div>

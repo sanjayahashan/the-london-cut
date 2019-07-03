@@ -1,99 +1,109 @@
 <app-side-menu></app-side-menu>
 
-<div class="container">
-  <h2>Add an Item to the Inventory</h2>
+<div class="background">
+  <div class="transbox">
+    <div class="container">
+      <h2>Add an Item to the Inventory</h2>
 
-  <div class="row">
-    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
 
-      <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-        <input type="hidden" formControlName="_id">
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input matInput #name formControlName="name" placeholder="Cotton">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          </mat-form-field>
-        </p>
+          <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <input type="hidden" formControlName="_id">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput #name formControlName="name" placeholder="Cotton" required>
 
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>Description</mat-label>
-            <textarea matInput #description formControlName="description" rows="5" placeholder="Cotton"></textarea>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          </mat-form-field>
-        </p>
+                <mat-error>
+                  Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
 
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>Quantity</mat-label>
-            <input matInput #quantity formControlName="quantity" placeholder="200">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          </mat-form-field>
-        </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput #description formControlName="description" rows="5" placeholder="Cotton"></textarea>
 
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>price</mat-label>
-            <input matInput #price formControlName="price" placeholder="350">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          </mat-form-field>
-        </p>
+              </mat-form-field>
+            </p>
 
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>Type</mat-label>
-            <mat-select #type formControlName="type">
-              <mat-option value="material">Material</mat-option>
-              <mat-option value="suit">Suit</mat-option>
-              <mat-option value="rental">Rental Product</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Quantity</mat-label>
+                <input matInput #quantity type="number" formControlName="quantity" placeholder="200">
 
-        <div *ngIf="type.value!='material'">
-          <label>Category: </label>
-          <mat-radio-group #suitCat formControlName="suit_category">
-            <mat-radio-button value="ladies">Ladies</mat-radio-button>
-            <mat-radio-button value="gents">Gents</mat-radio-button>
-            <mat-radio-button value="child">Child</mat-radio-button>
-            <mat-radio-button value="unisex">Unisex</mat-radio-button>
-          </mat-radio-group>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>price</mat-label>
+                <input matInput #price type="number" formControlName="price" placeholder="350">
+
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Type</mat-label>
+                <mat-select #type formControlName="type">
+                  <mat-option value="material">Material</mat-option>
+                  <mat-option value="suit">Suit</mat-option>
+                  <mat-option value="rental">Rental Product</mat-option>
+                </mat-select>
+                <mat-error>
+                  Type is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+
+            <div *ngIf="type.value=='suit' || type.value=='rental'">
+              <label>Category: </label>
+              <mat-radio-group #suitCat formControlName="suit_category">
+                <mat-radio-button value="ladies">Ladies</mat-radio-button>
+                <mat-radio-button value="gents">Gents</mat-radio-button>
+                <mat-radio-button value="child">Child</mat-radio-button>
+                <mat-radio-button value="unisex">Unisex</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <p>
+              <label for="image">Pick a Image to Display</label>
+              <input id="image" (change)="onFileSelected($event)" class="form-control" type="file">
+            </p>
+
+            <button mat-raised-button type="submit" color="primary">Save</button>
+          </form>
         </div>
 
-        <p>
-            <label for="image"></label>
-            <input id="image" (change)="onFileSelected($event)" class="form-control" type="file" >
-          </p>
-
-        <button mat-raised-button type="submit" color="primary">Save</button>
-      </form>
-    </div>
-
-    <div class="col-md-6">
-      <h3>Preview</h3>
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ name.value }}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image [src]="imageURL" style="height: 345px;">
-        <mat-card-content>
-          <p>
-            {{description.value}}
-          </p>
-          <p>
-            Remaining Quantity : {{quantity.value}}
-          </p>
-          <p>
-            Price : {{price.value}} LKR
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary">Edit</button>
-          <button mat-raised-button color="warn">Delete</button>
-        </mat-card-actions>
-      </mat-card>
+        <div class="col-md-6">
+          <h3>Preview</h3>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{ name.value }}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="imageURL" style="height: 345px;">
+            <mat-card-content>
+              <p>
+                {{description.value}}
+              </p>
+              <p>
+                Remaining Quantity : {{quantity.value}}
+              </p>
+              <p>
+                Price : {{price.value}} LKR
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary">Edit</button>
+              <button mat-raised-button color="warn">Delete</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
     </div>
   </div>
 </div>

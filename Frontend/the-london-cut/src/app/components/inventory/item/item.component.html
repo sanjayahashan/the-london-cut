@@ -33,7 +33,6 @@
     <div class="col-md-4" *ngFor="let item of itemList | async">
         <mat-card class="example-card">
           <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{ item.name }}</mat-card-title>
           </mat-card-header>
           <img mat-card-image [src]="sanitize(item.image)" alt="{{item.name}}" style="height: 345px;">
