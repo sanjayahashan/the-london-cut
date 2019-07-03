@@ -1,7 +1,3 @@
-<!-- <div class="landing container-fluid slide">
-  <app-navbar></app-navbar>
-</div> -->
-
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
@@ -21,14 +17,29 @@
     <!-- Links -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/inventory">Our Dresses</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Free tutorials</a>
+        </li> -->
+      </ul>
+
       <!-- Right -->
       <ul class="navbar-nav nav-flex-icons ml-auto">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="https://www.facebook.com" class="nav-link" target="_blank">
             Facebook
             <i class="fab fa-facebook-f"></i>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
             <a class="nav-link" [routerLink]="['/admin']">
               Dashboard
@@ -68,7 +79,7 @@
 
           <hr class="hr-light">
 
-          <p style="color: rgb(17, 14, 1)">
+          <p style="color: white">
             <strong><h2>Good Sewing for Good Moments</h2></strong>
           </p>
           <br><br><br>
@@ -422,5 +433,3 @@
   </div>
   <!--/.Copyright-->
 
-</footer>
-<!--/.Footer-->

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Item } from 'src/app/shared/models/item.model';
 import { ItemService } from 'src/app/shared/services/item.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-item-create',
@@ -16,11 +17,15 @@ export class ItemCreateComponent implements OnInit {
 
   itemForm = new FormGroup ({
     _id: new FormControl(),
-    name: new FormControl(Validators.required),
-    description: new FormControl(Validators.required),
+    name: new FormControl('',[
+      Validators.required
+    ]),
+    description: new FormControl(),
     quantity: new FormControl(''),
     price: new FormControl(''),
-    type: new FormControl(''),
+    type: new FormControl('', [
+      Validators.required
+    ]),
     suit_category: new FormControl(''),
     image: new FormControl()
   });
@@ -28,6 +33,7 @@ export class ItemCreateComponent implements OnInit {
   constructor(
       private itemService: ItemService,
       private route: ActivatedRoute,
+      private snackBar: MatSnackBar
     ) { }
 
   ngOnInit() {
@@ -47,6 +53,11 @@ export class ItemCreateComponent implements OnInit {
       this.item = this.itemForm.value;
       this.itemService.add(this.item).subscribe(item => {
         console.log(item);
+      });
+      this.itemForm.reset();
+      this.imageURL = "";
+      this.snackBar.open("Item Datails Saved Successfully", 'Dismiss', {
+        duration: 3000
       });
     }
     else {

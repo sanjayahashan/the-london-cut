@@ -40,7 +40,7 @@ app.use((err, req, res, next) => {
 });
 
 app.get('/',(req, res)=>{
-    res.send("roger i'm here babes");
+    res.send("server works!!!");
 });
 
 app.listen(PORT, ()=>{

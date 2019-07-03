@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material';
 import { Income } from 'src/app/shared/models/income.model';
 import { IncomeService } from 'src/app/shared/services/income.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-rent',
@@ -19,7 +20,8 @@ export class RentComponent implements OnInit {
       private itemService: ItemService,
       private route: ActivatedRoute,
       private snackBar: MatSnackBar,
-      private incomeService: IncomeService
+      private incomeService: IncomeService,
+      private sanitizer: DomSanitizer
     ) { }
 
   item: Item;
@@ -94,5 +96,14 @@ export class RentComponent implements OnInit {
     this.itemService.update(this.item).subscribe(item => {
       console.log(item);
     });
+  }
+
+  calculateFee(event) {
+    this.days = moment(event.value).diff(Date.now(), 'days');
+    // console.log(event);
+  }
+
+  sanitize(url:string){
+    return this.sanitizer.bypassSecurityTrustUrl('http://localhost:3000\\' + url);
   }
 }
